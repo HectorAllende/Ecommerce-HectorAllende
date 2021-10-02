@@ -1,0 +1,50 @@
+{
+
+   "items": [
+        {
+            "id": 1,
+            "name": "Producto 1",
+            "description": "Lorem ipsum",
+            "price": 1500,
+            "img": "img/1.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Producto 2",
+            "description": "Lorem ipsum",
+            "price": 500,
+            "img": "img/2.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Producto 3",
+            "description": "Lorem ipsum",
+            "price": 8000,
+            "img": "img/3.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Producto 4",
+            "description": "Lorem ipsum",
+            "price": 300,
+            "img": "img/4.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Producto 5",
+            "description": "Lorem ipsum",
+            "price": 1500,
+            "img": "img/5.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Producto 6",
+            "description": "Lorem ipsum",
+            "price": 1500,
+            "img": "img/6.jpg"
+        }
+        
+        
+
+    ]
+}
