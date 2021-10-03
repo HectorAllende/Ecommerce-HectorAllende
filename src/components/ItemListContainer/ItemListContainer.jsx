@@ -24,7 +24,7 @@ const ItemListContainer = ({titulo}) => {
             setCargando(false)
             setItems(resultado.data)
           
-        }, 3000);      
+        }, 2000);      
         
       }
       obtenerProductos()
