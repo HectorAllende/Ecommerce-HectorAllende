@@ -1,0 +1,60 @@
+
+    .footer--icon--container{
+        background-color: transparent;
+        padding: .7rem;
+        height: fit-content;
+        margin-right:.9rem;
+        border-radius:50%;
+        display: flex;
+       
+     
+        transition: all .6s;
+        color: #f3fcfb;
+
+    }
+
+    .footer--icon--container:hover{
+        background-color: #2f5037;
+        transition: all .4s;
+        font-size: 1.1rem;
+    }
+    .footer-name{
+        color: #f3fcfb;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+
+    .footer-name:hover{
+        color: #2f5037;
+    }
+
+    .logo{
+        color: #f3fcfb;
+    }
+    .logo:hover{
+        color: #2f5037;
+    }
+
+    .ir-arriba{
+        display:none;
+        background-repeat:no-repeat;
+        font-size:20px;
+        color:black;
+        cursor:pointer;
+        position:fixed;
+        bottom:10px;
+        right:10px;
+        z-index:2;
+      }
+
+    .menu{
+        color: #f3fcfb;
+    }
+    .menu:hover{
+        color: #2f5037;
+    }
+
+    .name{
+        text-decoration: none;
+    }

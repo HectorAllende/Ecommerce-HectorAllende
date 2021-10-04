@@ -1,4 +1,6 @@
 import React from 'react'
+import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
 
 
@@ -6,55 +8,55 @@ const NavBar = () => {
     return (
         <>
 
-            <div class="bg-dark collapse" id="navbarHeader">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-sm-8 py-4">
-                            <h4 class="text-white">Acerca de</h4>
-                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem magni eaque voluptates, amet dolor vel nihil asperiores aliquam sit ullam cum inventore. Laudantium neque esse adipisci magnam, placeat fugit iusto?</p>
-                        </div>
-                        <div class="col-12 col-sm-4 py-4">
-                            <h4 class="text-white">Productos</h4>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-white">Alimentos</a></li>
-                                <li><a href="#" class="text-white">Bebidas</a></li>
-                                <li><a href="#" class="text-white">Panes</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" className="sticky-top">
+                <Container>
+                    <NavLink to={'/'}>
+
+                    <Navbar.Brand href="#home"> <h1 className="display-4 lead">Vs</h1></Navbar.Brand>
+                    </NavLink>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="ms-auto">
+
+                            <NavDropdown title="Productos" id="collasible-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Alimentos</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Bebidas</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Condimentos</NavDropdown.Item>
+                                <NavDropdown.Divider />
+
+                                <NavLink to={'/productos'}>
+                                    <NavDropdown.Item href="#action/3.4">Todos</NavDropdown.Item>
+                                </NavLink>
 
 
-            <nav class="navbar navbar-dark bg-dark ">
-                <div class="container">
-                    <a href="#" class="navbar-brand d-flex align-items-center">
-                        
-                        <strong>Ecommerce- Vida Sana</strong>
-                    </a>
-                    <button
-                        class="navbar-toggler collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarHeader"
-                        aria-controls="navbarHeader"
-                        aria-expanded="false"
-                        aria-label="Alternar Navegacion"
-                    >
-                        <span class="navbar-toggler-icon"></span>
-                        <CartWidget/>
+                            </NavDropdown>
+                        </Nav>
+                        <Nav>
 
-                    </button>
-                </div>
-            </nav>
+                            <NavLink to={"/contacto"}>
+
+                                <Nav.Link href="#deets">Contacto</Nav.Link>
+                            </NavLink>
+
+                            <NavLink to={'/about'}>
+                                <Nav.Link eventKey={3} href="#memes">Nosotros</Nav.Link>
+                            </NavLink>
+
+                            <NavLink  to={'/checkout'}>
+                                <Nav.Link href="#deets" className="mx-3"><CartWidget /></Nav.Link>
+                            </NavLink>
 
 
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
 
         </>
 
 
 
-     );
+    );
 }
- 
+
 export default NavBar;
