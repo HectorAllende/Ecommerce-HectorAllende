@@ -1,36 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import ItemList from './ItemList'
-import axios from 'axios'
 import Spinner from '../Spinner/Spinner'
+import { ItemsContext } from '../../Context/ItemsContext'
 
 
 
 const ItemListContainer = ({titulo}) => {
 
-    const [items, setItems]= useState([])
-    const [cargando, setCargando]= useState(false)
-
-
-    useEffect(() => {
-
-      const obtenerProductos= async()=>{
-        const url = 'http://localhost:4000/items'
-
-        const resultado = await axios.get(url)
-
-        setCargando(true)
-
-        setTimeout(() => {
-
-            setCargando(false)
-            setItems(resultado.data)
-          
-        }, 2000);      
-        
-      }
-      obtenerProductos()
-
-    }, [])
+    const {items, cargando}= useContext(ItemsContext)
 
     const componente = cargando ? <Spinner/> : <ItemList items={items}/>
     

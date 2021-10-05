@@ -27,13 +27,16 @@
 
     .footer-name:hover{
         color: #2f5037;
+        transition: all .4s;
     }
 
     .logo{
         color: #f3fcfb;
+
     }
     .logo:hover{
         color: #2f5037;
+        transition: all .4s;
     }
 
     .ir-arriba{
@@ -53,6 +56,7 @@
     }
     .menu:hover{
         color: #2f5037;
+        transition: all .4s;
     }
 
     .name{

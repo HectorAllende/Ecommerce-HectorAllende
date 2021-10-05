@@ -10,21 +10,21 @@ const NavBar = () => {
 
             <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" className="sticky-top">
                 <Container>
-                    <NavLink to={'/'}>
-
-                    <Navbar.Brand href="#home"> <h1 className="display-4 lead">Vs</h1></Navbar.Brand>
+                    <NavLink to={'/'} className="name">
+                        <Navbar.Brand href="#"> <h1 className="display-4 lead logo">Vs</h1></Navbar.Brand>
+                    
                     </NavLink>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
 
-                            <NavDropdown title="Productos" id="collasible-nav-dropdown">
+                            <NavDropdown title="Productos" id="collasible-nav-dropdown" className="fs-5">
                                 <NavDropdown.Item href="#action/3.1">Alimentos</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Bebidas</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">Condimentos</NavDropdown.Item>
                                 <NavDropdown.Divider />
 
-                                <NavLink to={'/productos'}>
+                                <NavLink to={'/productos'} className="name">
                                     <NavDropdown.Item href="#action/3.4">Todos</NavDropdown.Item>
                                 </NavLink>
 
@@ -32,18 +32,19 @@ const NavBar = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-
-                            <NavLink to={"/contacto"}>
-
-                                <Nav.Link href="#deets">Contacto</Nav.Link>
+                            <NavLink to={'/about'} className="name">
+                                <Nav.Link eventKey={3} href="#memes" className="fs-5"> Nosotros</Nav.Link>
                             </NavLink>
 
-                            <NavLink to={'/about'}>
-                                <Nav.Link eventKey={3} href="#memes">Nosotros</Nav.Link>
+                            <NavLink to={"/contacto"} className="name">
+
+                                <Nav.Link href="#deets" className="fs-5">Contacto</Nav.Link>
                             </NavLink>
 
-                            <NavLink  to={'/checkout'}>
-                                <Nav.Link href="#deets" className="mx-3"><CartWidget /></Nav.Link>
+
+
+                            <NavLink to={'/checkout'} className="name">
+                                <Nav.Link href="#deets" className="mx-5" className="fs-5"><CartWidget /></Nav.Link>
                             </NavLink>
 
 
