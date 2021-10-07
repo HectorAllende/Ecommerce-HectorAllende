@@ -24,7 +24,7 @@ const ItemsProvider = (props) => {
             setCargando(false)
             setItems(resultado.data)
           
-        }, 1000); 
+        }, 2000); 
         
 
         

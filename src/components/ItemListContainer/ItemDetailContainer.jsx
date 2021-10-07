@@ -18,22 +18,23 @@ const ItemDetailContainer = () => {
     const producto = items.filter(el => el.id === parseInt(id))[0]
 
 
-    const { name, description, price, img } = producto
+    const { name, description, price, img1 } = producto
 
 
     return (
         <>
             <div className="container">
-                <div className="row pt-5">
+                <div className="row pt-5 mb-4">
                     <div className="col-12 col-md-6 d-flex justify-content-center align-items-center mb-3  ">
-                        <img alt={name} src={{img}}/>
+                        <img alt={name} src={img1}/>
                     </div>
                     <div className="col-12 col-md-6 py-5 d-flex flex-column justify-content-center ">
                         <h1 className="display-5 lead">{name}</h1>
                         <p className="fs-3 lead">{description}</p>
                         <p className="text-muted fs-3">${price}</p>
+
                         <div className="col-6">
-                        <Button variant="outline-secondary"className="rounded">Agregar al carrito</Button>{' '}
+                        <Button variant="outline-secondary"className="">Agregar al carrito</Button>{' '}
                         </div>
 
                   
