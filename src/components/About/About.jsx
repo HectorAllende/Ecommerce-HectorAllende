@@ -1,6 +1,12 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import scrollTop from '../utils/scrollTop';
 
 const About = () => {
+
+  useEffect(()=>{
+    scrollTop()
+  },[])
+  
     return (
         
       <div className="container mt-4">

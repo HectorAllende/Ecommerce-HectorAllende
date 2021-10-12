@@ -5,6 +5,8 @@ import CartWidget from '../CartWidget/CartWidget'
 
 
 const NavBar = () => {
+
+
     return (
         <>
 
@@ -12,16 +14,24 @@ const NavBar = () => {
                 <Container>
                     <NavLink to={'/'} className="name">
                         <Navbar.Brand href="#"> <h1 className="display-4 lead logo">Vs</h1></Navbar.Brand>
-                    
+
                     </NavLink>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
 
                             <NavDropdown title="Productos" id="collasible-nav-dropdown" className="fs-5">
-                                <NavDropdown.Item href="#action/3.1">Alimentos</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Bebidas</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Condimentos</NavDropdown.Item>
+                                <NavLink to={'/productos/Alimentos'} className="name">
+                                    <NavDropdown.Item href="#action/3.1">Alimentos</NavDropdown.Item>
+                                </NavLink>
+                                <NavLink to={'/productos/Bebidas'} className="name">
+                                    <NavDropdown.Item href="#action/3.2">Bebidas</NavDropdown.Item>
+                                </NavLink>
+
+                                <NavLink to={'/productos/Condimentos'} className="name">
+                                    <NavDropdown.Item href="#action/3.3">Condimentos</NavDropdown.Item>
+                                </NavLink>
+
                                 <NavDropdown.Divider />
 
                                 <NavLink to={'/productos'} className="name">

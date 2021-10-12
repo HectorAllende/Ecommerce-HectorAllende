@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css'
-
+import scrollTop from '../utils/scrollTop';
 
 
 const Home = () => {
+
+    useEffect(()=>{
+        scrollTop()
+    })
     return (
         <div className="container .bg-light">
             <div className="row d-flex justify-content-center align-items-center mb-5">

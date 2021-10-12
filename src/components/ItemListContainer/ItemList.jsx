@@ -1,36 +1,91 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import Item from './Item'
+import { ItemsContext } from '../../Context/ItemsContext';
+import scrollTop from '../utils/scrollTop';
+import { Breadcrumb } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom';
+import { useParams } from 'react-router';
+
+const ItemList = ({ items }) => {
+
+    const { cargando } = useContext(ItemsContext)
+
+    useEffect(() => {
+        scrollTop()
+    }, [])
+
+    const { category } = useParams()
 
 
-const ItemList = ({items}) => {
-
-    if(Object.keys(items).length ===0) return null
-  
-    return ( 
-
-       
+    if (Object.keys(items).length === 0) return null
 
 
-            <div className="container">
-             
 
-                <div className="row d-flex justify-content-center align-items-center">
-               
+    const componente = category ? (
+        <>
+            <Breadcrumb.Item href="#">
+                <NavLink to={`/productos/`}>
+                    Productos
+                </NavLink>
+            </Breadcrumb.Item>
 
-                    {items.map(item => (
-                        <Item
-                            item={item}
-                        />
-                    ))}
+
+            <Breadcrumb.Item active>{category}</Breadcrumb.Item>
+
+        </>
+
+
+    ) : (<Breadcrumb.Item active>Productos</Breadcrumb.Item>)
+
+
+    return (
+
+        <>
+
+            {cargando ? <p>Cargando...</p> : (
+
+                <div className="container">
+
+                    <div className="row mt-2">
+                        <Breadcrumb>
+
+                            <Breadcrumb.Item href="#">
+                                <NavLink to={`/`}>
+                                    Inicio
+                                </NavLink>
+                            </Breadcrumb.Item>
+
+
+
+
+
+                            {componente}
+
+
+                        </Breadcrumb>
+                    </div>
+
+
+                    <div className="row d-flex justify-content-center align-items-center">
+
+
+                        {items.map(item => (
+                            <Item
+                                item={item}
+                            />
+                        ))}
+                    </div>
+
+
                 </div>
-        
+            )}
 
-            </div>
-     
+        </>
 
-    
-      
-     );
+
+
+
+    );
 }
- 
+
 export default ItemList;

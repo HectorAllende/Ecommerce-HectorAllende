@@ -7,7 +7,8 @@
             "description": "Lorem ipsum",
             "price": 1500,
             "img": "img/1.jpg",
-            "img1":"https://via.placeholder.com/360"
+            "img1":"https://via.placeholder.com/360",
+            "category": "Condimentos"
 
         },
         {
@@ -16,7 +17,8 @@
             "description": "Lorem ipsum",
             "price": 500,
             "img": "img/2.jpg",
-            "img1":"https://via.placeholder.com/360"
+            "img1":"https://via.placeholder.com/360",
+            "category": "Condimentos"
         },
         {
             "id": 3,
@@ -24,7 +26,8 @@
             "description": "Lorem ipsum",
             "price": 8000,
             "img": "img/3.jpg",
-            "img1":"https://via.placeholder.com/360"
+            "img1":"https://via.placeholder.com/360",
+            "category": "Condimentos"
         },
         {
             "id": 4,
@@ -32,7 +35,8 @@
             "description": "Lorem ipsum",
             "price": 300,
             "img": "img/4.jpg",
-            "img1":"https://via.placeholder.com/360"
+            "img1":"https://via.placeholder.com/360",
+            "category": "Alimentos"
         },
         {
             "id": 5,
@@ -40,7 +44,8 @@
             "description": "Lorem ipsum",
             "price": 1500,
             "img": "img/5.jpg",
-            "img1":"https://via.placeholder.com/360"
+            "img1":"https://via.placeholder.com/360",
+            "category": "Alimentos"
         },
         {
             "id": 6,
@@ -48,8 +53,64 @@
             "description": "Lorem ipsum",
             "price": 1500,
             "img": "img/6.jpg",
-            "img1":"https://via.placeholder.com/360"
-        }     
+            "img1":"https://via.placeholder.com/360",
+            "category": "Alimentos"
+        },
+        {
+            "id": 7,
+            "name": "Producto 7",
+            "description": "Lorem ipsum",
+            "price": 1500,
+            "img": "img/6.jpg",
+            "img1":"https://via.placeholder.com/360",
+            "category": "Bebidas"
+        },
+        {
+            "id": 8,
+            "name": "Producto 8",
+            "description": "Lorem ipsum",
+            "price": 1500,
+            "img": "img/6.jpg",
+            "img1":"https://via.placeholder.com/360",
+            "category": "Bebidas"
+        },
+        {
+            "id": 9,
+            "name": "Producto 9",
+            "description": "Lorem ipsum",
+            "price": 1500,
+            "img": "img/6.jpg",
+            "img1":"https://via.placeholder.com/360",
+            "category": "Bebidas"
+        },
+        {
+            "id": 10,
+            "name": "Producto 10",
+            "description": "Lorem ipsum",
+            "price": 1500,
+            "img": "img/6.jpg",
+            "img1":"https://via.placeholder.com/360",
+            "category": "Alimentos"
+        },
+        {
+            "id": 11,
+            "name": "Producto 11",
+            "description": "Lorem ipsum",
+            "price": 1500,
+            "img": "img/6.jpg",
+            "img1":"https://via.placeholder.com/360",
+            "category": "Alimentos"
+        },
+        {
+            "id": 12,
+            "name": "Producto 12",
+            "description": "Lorem ipsum",
+            "price": 1500,
+            "img": "img/6.jpg",
+            "img1":"https://via.placeholder.com/360",
+            "category": "Alimentos"
+        }
+
 
     ]
 }
