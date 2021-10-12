@@ -10,6 +10,9 @@ const ItemsProvider = (props) => {
     const [cargando, setCargando] = useState(false)
     const [category, setCategory] = useState()
 
+    const [id, setId] = useState()
+    const [itemId, SetItemId] = useState([])
+
     useEffect(() => {
 
         const obtenerProductos = async () => {
@@ -30,17 +33,24 @@ const ItemsProvider = (props) => {
                 }
 
             }, 1000);
+
+            const includesId = resultado.data.filter(el => el.id === parseInt(id))[0]
+            if (includesId) {
+                SetItemId(includesId)
+            }
         }
         obtenerProductos()
 
-    }, [category])
+    }, [id, category])
 
     return (
         <ItemsContext.Provider
             value={{
                 items,
                 cargando,
+                itemId,
                 setCategory,
+                setId
             }}
         >
 

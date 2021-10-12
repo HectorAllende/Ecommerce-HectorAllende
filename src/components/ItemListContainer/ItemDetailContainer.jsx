@@ -5,27 +5,30 @@ import { Button } from 'react-bootstrap'
 import scrollTop from '../utils/scrollTop';
 import { Breadcrumb } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
+import Spinner from '../Spinner/Spinner'
 
 
 
 const ItemDetailContainer = () => {
-    
+
     useEffect(() => {
         scrollTop()
     }, [])
 
     const { id } = useParams()
 
-    const { items, cargando } = useContext(ItemsContext)
+    const { itemId, setId, cargando } = useContext(ItemsContext)
 
-    const itemId = items.filter(el => el.id === parseInt(id))[0]
+    setId(id)
+
+    // const itemId = items.filter(el => el.id === parseInt(id))[0]
 
     const { name, description, price, img1, category } = itemId
 
     return (
         <>
 
-            {cargando ? <p>Cargando...</p> : (
+            {cargando ? <Spinner/> : (
 
 
                 <div className="container">
