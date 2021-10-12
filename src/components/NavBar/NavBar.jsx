@@ -54,7 +54,7 @@ const NavBar = () => {
 
 
                             <NavLink to={'/checkout'} className="name">
-                                <Nav.Link href="#deets" className="mx-5" className="fs-5"><CartWidget /></Nav.Link>
+                                <Nav.Link href="#deets" className="mx-5 fs-5"><CartWidget /></Nav.Link>
                             </NavLink>
 
 
