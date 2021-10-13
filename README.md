@@ -6,13 +6,19 @@ Esta proyecto es un Ecommerce de alimentos Saludables y naturales, realizado en 
 ## Comenzando 🚀
 
 Para instalar el proyecto:
+
 ### `npm install`
 
-El los productos estan en una Rest API con JSON-Server, por lo que hay que ejecutar el siguiento comando en el puerto 4000, para poder ver los productos:
+El los productos estan en una Rest API con JSON-Server, por lo que hay que instalar json-server
+
+### `npm install -g json-server`
+
+Ejecutar el siguiento comando en el puerto 4000, para poder ver los productos:
 
 ### `json-server db.json --port 4000`
 
 Por último:
+
 ### `npm start`
 
 Link donde corre la pagina  http://localhost:3000/
