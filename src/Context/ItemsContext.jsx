@@ -1,52 +1,69 @@
-import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios'
+import React, { createContext, useState, useEffect, useContext } from 'react';
+import { FirebaseContext } from '../firebase';
 
 export const ItemsContext = createContext()
 
 const ItemsProvider = (props) => {
 
-
+    const [productos, setProductos] = useState([])
     const [items, setItems] = useState([])
     const [cargando, setCargando] = useState(false)
     const [category, setCategory] = useState()
-
     const [id, setId] = useState()
     const [itemId, SetItemId] = useState([])
+
+    const { firebase } = useContext(FirebaseContext)
 
     useEffect(() => {
 
         const obtenerProductos = async () => {
-            const url = 'http://localhost:4000/items'
 
-            const resultado = await axios.get(url)
+            firebase.db.collection('productos').onSnapshot(handleSnapshot)
 
-            setCargando(true)
+            function handleSnapshot(snapshot) {
+                const productos = snapshot.docs.map(doc => {
+                    return {
+                        id: doc.id,
+                        ...doc.data()
+                    }
+                })
 
-            setTimeout(() => {
+                setCargando(true)
 
-                setCargando(false)
+                setTimeout(() => {
 
-                if (category) {
-                    setItems(resultado.data.filter(el => el.category = category))
-                } else {
-                    setItems(resultado.data)
+                    setCargando(false)
+
+                    if (category) {
+                        setItems(productos.filter(el => el.category === category))
+                    } else {
+                        setItems(productos)
+                    }
+
+                    setProductos(productos)
+
+
+                }, 1000);
+
+                const includesId = productos.filter(el => el.id === id)[0]
+                if (includesId) {
+                    SetItemId(includesId)
                 }
-
-            }, 1000);
-
-            const includesId = resultado.data.filter(el => el.id === parseInt(id))[0]
-            if (includesId) {
-                SetItemId(includesId)
             }
         }
         obtenerProductos()
 
+
+
     }, [id, category])
+
+
 
     return (
         <ItemsContext.Provider
             value={{
                 items,
+                productos,
                 cargando,
                 itemId,
                 setCategory,

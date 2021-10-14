@@ -41,12 +41,12 @@ const ItemList = ({ items }) => {
     return (
 
         <>
-
             {cargando ? <p>Cargando...</p> : (
 
                 <div className="container">
 
                     <div className="row mt-2">
+
                         <Breadcrumb>
 
                             <Breadcrumb.Item href="#">
@@ -66,7 +66,7 @@ const ItemList = ({ items }) => {
                     </div>
 
 
-                    <div className="row d-flex justify-content-center align-items-center">
+                    <div className="row d-flex justify-content-center align-items-center mb-4">
 
 
                         {items.map(item => (

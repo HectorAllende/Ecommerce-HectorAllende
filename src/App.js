@@ -9,48 +9,48 @@ import Contacto from './components/Contacto/Contacto'
 import Checkout from './components/Checkout/Checkout'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import scrollTop from './components/utils/scrollTop';
+import firebase, { FirebaseContext } from './firebase'
 
 import ItemsProvider from './Context/ItemsContext';
+import CartProvider from './Context/CartContext';
 
 function App() {
 
-  useEffect(()=>{
+  useEffect(() => {
     scrollTop()
   })
   return (
     <>
-
-      <ItemsProvider>
-
-
-
-        <BrowserRouter>
-          <NavBar />
-
-          <Switch>
-            <Route exact path="/" component={Home}></Route>
-            <Route exact path="/productos" component={ItemListContainer}></Route>
-            <Route exact path="/productos/:category" component={ItemListContainer}></Route>
-            <Route exact path="/item/:id" component={ItemDetailContainer}></Route>
-            <Route exact path="/about" component={About}></Route>
-            <Route exact path="/contacto" component={Contacto}></Route>
-            <Route exact path="/checkout" component={Checkout}></Route>
-            <Redirect to={"/"} />
-          </Switch>
+      <FirebaseContext.Provider
+        value={{
+          firebase
+        }}
+      >
 
 
-          <Footer />
-        </BrowserRouter>
-      </ItemsProvider>
+        <ItemsProvider>
+          <CartProvider>
+            
+            <BrowserRouter>
 
+              <NavBar />
 
+              <Switch>
+                <Route exact path="/" component={Home}></Route>
+                <Route exact path="/productos" component={ItemListContainer}></Route>
+                <Route exact path="/productos/:category" component={ItemListContainer}></Route>
+                <Route exact path="/item/:id" component={ItemDetailContainer}></Route>
+                <Route exact path="/about" component={About}></Route>
+                <Route exact path="/contacto" component={Contacto}></Route>
+                <Route exact path="/checkout" component={Checkout}></Route>
+                <Redirect to={"/"} />
+              </Switch>
+              <Footer />
+            </BrowserRouter>
 
-
-
-
-
-
-
+          </CartProvider>
+        </ItemsProvider>
+      </FirebaseContext.Provider>
     </>
 
   );

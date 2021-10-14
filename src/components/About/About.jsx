@@ -31,7 +31,7 @@ const About = () => {
 
         <div className="col-12 col-md-6 mb p-2">
 
-          <img src="img/nosotros.jpg" alt="nosotros" className="img-fluid" />
+          <img src="img/nosotros.jpg" alt="nosotros" className="img-fluid shadow-lg bg-body rounded" />
 
         </div>
 

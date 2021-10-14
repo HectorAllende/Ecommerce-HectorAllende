@@ -34,7 +34,6 @@ const ItemDetailContainer = () => {
                 <div className="container">
                     <div className="row mt-2">
                         <Breadcrumb>
-
                             <Breadcrumb.Item href="#">
                                 <NavLink to={`/`}>
                                     Inicio
@@ -62,21 +61,24 @@ const ItemDetailContainer = () => {
 
 
 
-                    <div className="row pt-5 mb-4">
-                        <div className="col-12 col-md-6 d-flex justify-content-center align-items-center mb-3  ">
-                            <img alt={name} src={img1} />
+                    <div className="row">
+
+                      
+                        <div className="col-12 col-md-8 mb-4 p-4 d-flex justify-content-center">
+                            <img alt={name} src={img1} className="img-fluid shadow-lg bg-body rounded" width="600" />
                         </div>
-                        <div className="col-12 col-md-6 py-5 d-flex flex-column justify-content-center ">
+
+
+                        <div className="col-12 col-md-4 mb-4 p-4 ">
                             <h1 className="display-5 lead">{name}</h1>
                             <p className="fs-3 lead">{description}</p>
                             <p className="text-muted fs-3">${price}</p>
-
                             <div className="col-12 col-md-6">
-                                <Button variant="outline-secondary" className="">Agregar al carrito</Button>{' '}
+                                <Button variant="outline-secondary px-3" className="">Agregar al carrito</Button>{' '}
                             </div>
-
-
                         </div>
+
+                       
 
                     </div>
 
