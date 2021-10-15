@@ -12,7 +12,6 @@ const CartProvider = (props) => {
     const {productos}= useContext(ItemsContext)
 
 
-
     const addCarrito = id =>{
         // Verifica si el carrito no tiene ese id
         const check = carrito.every(el =>{
@@ -38,7 +37,12 @@ const CartProvider = (props) => {
         obtenerTotal()
     },[carrito])
     
-
+    // const value = {
+    //     productos: [productos],
+    //     carrito:[carrito, setCarrito],
+    //     total:[total, setTotal],
+    //     addCarrito:addCarrito
+    // }
 
 
     return ( 
@@ -47,7 +51,8 @@ const CartProvider = (props) => {
                 productos,
                 carrito,
                 total,
-                addCarrito,                   
+                addCarrito,
+                setCarrito
             }}
         >
             {props.children}
