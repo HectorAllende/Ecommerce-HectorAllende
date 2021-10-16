@@ -43,7 +43,7 @@ const ItemsProvider = (props) => {
                     setProductos(productos)
 
 
-                }, 1000);
+                }, 500);
 
                 const includesId = productos.filter(el => el.id === id)[0]
                 if (includesId) {

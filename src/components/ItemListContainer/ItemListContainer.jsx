@@ -23,25 +23,29 @@ const ItemListContainer = ({ titulo }) => {
   return (
 
     <>
-      {cargando ? <Spinner /> : (
+      <div className="container .bg-light">
+        {cargando ? <Spinner /> : (
 
-        <div className="container">
+          <>
 
-
-          <div className="row">
-            <div className="col text-center py-2">
-              <h1 className="display-4">{titulo}</h1>
+            <div className="row">
+              <div className="col text-center py-2">
+                <h1 className="display-4">{titulo}</h1>
+              </div>
             </div>
-          </div>
 
-          <div className="row">
-            <div className="col">
-              {componente}
+            <div className="row">
+              <div className="col">
+                {componente}
+              </div>
             </div>
-          </div>
+          </>
 
-        </div>
-      )}
+
+        )}
+      </div>
+
+
     </>
 
   );

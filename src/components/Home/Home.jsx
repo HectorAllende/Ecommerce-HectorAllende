@@ -8,6 +8,7 @@ const Home = () => {
     useEffect(()=>{
         scrollTop()
     })
+
     return (
         <div className="container .bg-light">
             <div className="row d-flex justify-content-center align-items-center mb-5">
@@ -19,7 +20,7 @@ const Home = () => {
                 </div>
 
                 <div className="col-12 col-md-6 mt-4">
-                    <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+                    <div id="carouselExampleControls" className="carousel slide shadow bg-body rounded" data-bs-ride="carousel">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
                                 <img src="img/imagen1.jpg" className="d-block w-100 img-fluid shadow-lg bg-body rounded" alt="imagen1" />

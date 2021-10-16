@@ -13,6 +13,7 @@ import firebase, { FirebaseContext } from './firebase'
 
 import ItemsProvider from './Context/ItemsContext';
 import CartProvider from './Context/CartContext';
+import 'boxicons'
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
                 <Route exact path="/checkout" component={Checkout}></Route>
                 <Redirect to={"/"} />
               </Switch>
+              
               <Footer />
             </BrowserRouter>
 

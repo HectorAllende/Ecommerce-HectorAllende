@@ -12,13 +12,13 @@ const NavBar = () => {
 
             <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" className="sticky-top">
                 <Container>
-                    <NavLink to={'/'} className="name">
-                        <Navbar.Brand href="#"> <h1 className="display-4 lead logo">Vs</h1></Navbar.Brand>
-
+                    <NavLink to={'/'} className="name d-flex align-items-center">
+                        <Navbar.Brand href="#"> <h1 className="display-4 lead logo ">Vs</h1></Navbar.Brand>
                     </NavLink>
+
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="ms-auto">
+                        <Nav className="ms-auto d-flex align-items-start align-items-end ">
 
                             <NavDropdown title="Productos" id="collasible-nav-dropdown" className="fs-5">
                                 <NavLink to={'/productos/Alimentos'} className="name">
@@ -39,26 +39,30 @@ const NavBar = () => {
                                 </NavLink>
 
 
-                            </NavDropdown>
-                        </Nav>
-                        <Nav>
-                            <NavLink to={'/about'} className="name">
+                            </NavDropdown>        
+
+                
+
+                            <NavLink to={'/about'} className="name" >
                                 <Nav.Link eventKey={3} href="#memes" className="fs-5"> Nosotros</Nav.Link>
                             </NavLink>
 
-                            <NavLink to={"/contacto"} className="name">
+                            {/* <NavLink to={"/contacto"} className="name">
 
                                 <Nav.Link href="#deets" className="fs-5">Contacto</Nav.Link>
-                            </NavLink>
+                            </NavLink> */}
+                  
 
-
-
+               
                             <NavLink to={'/checkout'} className="name">
-                                <Nav.Link href="#deets" className="mx-5 fs-5"><CartWidget /></Nav.Link>
+                                <Nav.Link href="#deets" className=" mx-3 fs-6">
+
+                                    <CartWidget />
+                                   
+                                </Nav.Link>
                             </NavLink>
-
-
                         </Nav>
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

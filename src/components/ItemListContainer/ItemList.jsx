@@ -41,44 +41,42 @@ const ItemList = ({ items }) => {
     return (
 
         <>
-            {cargando ? <p>Cargando...</p> : (
+            <div className="container .bg-light">
+                {cargando ? <p>Cargando...</p> : (
 
-                <div className="container">
+                    <>
 
-                    <div className="row mt-2">
+                        <div className="row mt-2">
 
-                        <Breadcrumb>
+                            <Breadcrumb>
 
-                            <Breadcrumb.Item href="#">
-                                <NavLink to={`/`}>
-                                    Inicio
-                                </NavLink>
-                            </Breadcrumb.Item>
+                                <Breadcrumb.Item href="#">
+                                    <NavLink to={`/`}>
+                                        Inicio
+                                    </NavLink>
+                                </Breadcrumb.Item>
 
-
-
-
-
-                            {componente}
+                                {componente}
 
 
-                        </Breadcrumb>
-                    </div>
+                            </Breadcrumb>
+                        </div>
 
 
-                    <div className="row d-flex justify-content-center align-items-center mb-4">
+                        <div className="row d-flex justify-content-center align-items-center mb-4">
 
 
-                        {items.map(item => (
-                            <Item
-                                item={item}
-                            />
-                        ))}
-                    </div>
+                            {items.map(item => (
+                                <Item
+                                    item={item}
+                                />
+                            ))}
+                        </div>
+                    </>
 
 
-                </div>
-            )}
+                )}
+            </div>
 
         </>
 
