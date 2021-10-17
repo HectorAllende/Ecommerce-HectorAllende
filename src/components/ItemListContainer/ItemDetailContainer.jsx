@@ -108,8 +108,13 @@ const ItemDetailContainer = () => {
                                     ?
                                     <>
 
-                                        <div className="col-12 col-md-6">
-                                            <Link to="/checkout" className="btn btn-success rounded-pill">Terminar compra</Link>
+                                        <div className="d-flex flex-column col-12 col-md-6">
+
+
+                                            <Link to="/productos" className="btn btn-outline-secondary rounded-pill mb-3 btn-sm">Seguir comprando</Link>
+                                            
+                                            <Link to="/checkout" className="btn btn-success rounded-pill btn-sm">Terminar compra</Link>
+
 
 
                                         </div>
@@ -130,8 +135,7 @@ const ItemDetailContainer = () => {
                                         </div>
 
                                         <div className="col-12 col-md-6">
-                                            <Button variant="outline-secondary px-3 rounded-pill" onClick={handleAgregar} >Agregar al carrito</Button>
-
+                                            <Button variant="outline-secondary px-3 rounded-pill btn-sm" onClick={handleAgregar} >Agregar al carrito</Button>
 
                                         </div>
                                     </>
