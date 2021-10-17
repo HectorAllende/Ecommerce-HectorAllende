@@ -1,6 +1,5 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import Item from './Item'
-import { ItemsContext } from '../../Context/ItemsContext';
 import scrollTop from '../utils/scrollTop';
 import { Breadcrumb } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
@@ -8,7 +7,6 @@ import { useParams } from 'react-router';
 
 const ItemList = ({ items }) => {
 
-    const { cargando } = useContext(ItemsContext)
 
     useEffect(() => {
         scrollTop()
@@ -45,7 +43,6 @@ const ItemList = ({ items }) => {
             <div className="container .bg-light">
 
               
-
                     <>
 
                         <div className="row mt-2">

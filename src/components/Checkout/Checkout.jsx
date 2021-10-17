@@ -1,11 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { CartContext } from '../../Context/CartContext';
-import { ItemsContext } from '../../Context/ItemsContext';
 import Detalle from './DetalleCompra';
-import ItemCount from './ItemCount';
 import './carrito.css';
 import scrollTop from '../utils/scrollTop';
-// import { box } from 'boxicons'
+import { Link } from 'react-router-dom';
 
 const Checkout = () => {
 
@@ -21,19 +19,20 @@ const Checkout = () => {
         <>
             <div className="container">
                 <div className="row">
-                    {/* Cambiar luego productos por carrito  */}
-
+                
                     {carrito.length === 0 ?
                         <>
                             <div className=" row text-center m-6 p-5">
                                 <p className="text-muted lead fs-2">Tu carrito esta Vacío</p>
                                 <p className="text-muted lead fs-4">Comienza agregando productos :)</p>
+                        
 
                                 <div className="my-4">
+                                    <Link to={`/productos/`}>
+                                    
                                     <box-icon name='cart' animation='tada' size="80px" color="gray" ></box-icon>
+                                    </Link>
                                 </div>
-
-
 
                             </div>
 
@@ -51,7 +50,7 @@ const Checkout = () => {
                                                 <div className="col-12 border border-2 g-0 m-2 shadow bg-body rounded d-flex justify-content-between ">
 
                                                     <div className="">
-                                                        <img src={el.img1} width="150" className="rounded-1 m-2" />
+                                                        <img src={el.img1} width="150" className="rounded-1 m-2" alt={el.name} />
                                                     </div>
 
 

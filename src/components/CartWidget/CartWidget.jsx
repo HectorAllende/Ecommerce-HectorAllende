@@ -12,7 +12,7 @@ const Carrito = () => {
 
                 <div className="col-12 offset-3">
 
-                    {calcularCantidad()>0 ? <span className="badge bg-secondary rounded-pill offset-4">{calcularCantidad()}</span>: null }              
+                    {calcularCantidad()>0 && <span className="badge bg-secondary rounded-pill offset-4">{calcularCantidad()}</span>}              
                     
                 </div>   
 

@@ -14,10 +14,6 @@ const ItemListContainer = () => {
   const { category } = useParams()
   setCategory(category)
 
-
-
-  const componente = cargando ? <Spinner /> : <ItemList items={items} />
-
   useEffect(() => {
     scrollTop()
   }, [])
@@ -29,7 +25,7 @@ const ItemListContainer = () => {
 
         <div className="row">
           <div className="col">
-            {componente}
+            {cargando ? <Spinner /> : <ItemList items={items} />}
           </div>
         </div>
       </div>

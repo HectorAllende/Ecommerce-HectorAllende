@@ -15,6 +15,7 @@ const ItemsProvider = (props) => {
     const { firebase } = useContext(FirebaseContext)
 
     useEffect(() => {
+        // eslint-disable-next-line
 
         const obtenerProductos = async () => {
 
@@ -53,12 +54,10 @@ const ItemsProvider = (props) => {
         }
         obtenerProductos()
 
-
-
+        // eslint-disable-next-line
+  
     }, [id, category])
-
-
-
+ 
     return (
         <ItemsContext.Provider
             value={{

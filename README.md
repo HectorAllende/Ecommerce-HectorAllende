@@ -9,13 +9,9 @@ Para instalar el proyecto:
 
 ### `npm install`
 
-El los productos estan en una Rest API con JSON-Server, por lo que hay que instalar json-server
+El los productos estan en agregados en la base de datos de firebase
 
-### `npm install -g json-server`
-
-Ejecutar el siguiento comando en el puerto 4000, para poder ver los productos:
-
-### `json-server db.json --port 4000`
+### `npm install firebase`
 
 Por último:
 
@@ -23,7 +19,6 @@ Por último:
 
 Link donde corre la pagina  http://localhost:3000/
 
-Link para los productos API rest  http://localhost:4000/items
 
 ## Proyecto 
 

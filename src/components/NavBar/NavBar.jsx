@@ -1,11 +1,12 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
-
+import { CartContext } from '../../Context/CartContext'
 
 const NavBar = () => {
 
+    const {calcularCantidad} = useContext(CartContext)
 
     return (
         <>
@@ -58,7 +59,8 @@ const NavBar = () => {
                             <NavLink to={'/checkout'} className="name pb-3">
                                 <Nav.Link href="#deets" className=" mx-3 fs-6">
 
-                                    <CartWidget />
+                                    {calcularCantidad()> 0 && <CartWidget />}
+                                    
                                    
                                 </Nav.Link>
                             </NavLink>
