@@ -33,7 +33,7 @@ const Item = ({ item }) => {
                         <Card.Text>Precio: <span className="text-muted fw-bold">${price} </span></Card.Text>
 
                         <NavLink to={`/item/${id}`}>
-                            <Button variant="btn btn-sm btn-outline-secondary mx-3" className="text-center shadow-sm rounded px-4">Ver producto</Button>
+                            <Button variant="btn btn-sm btn-outline-secondary mx-3 rounded-pill" className="text-center shadow-sm rounded px-4">Ver producto</Button>
                         </NavLink>
                     </Card.Body>
                 </Card>

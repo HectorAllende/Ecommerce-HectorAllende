@@ -41,8 +41,10 @@ const ItemList = ({ items }) => {
     return (
 
         <>
+   
             <div className="container .bg-light">
-                {cargando ? <p>Cargando...</p> : (
+
+              
 
                     <>
 
@@ -75,7 +77,7 @@ const ItemList = ({ items }) => {
                     </>
 
 
-                )}
+            
             </div>
 
         </>

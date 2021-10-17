@@ -18,9 +18,10 @@ const NavBar = () => {
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
+
                         <Nav className="ms-auto d-flex align-items-start align-items-end ">
 
-                            <NavDropdown title="Productos" id="collasible-nav-dropdown" className="fs-5">
+                            <NavDropdown title="Productos" id="collasible-nav-dropdown" className="fs-5 m-3">
                                 <NavLink to={'/productos/Alimentos'} className="name">
                                     <NavDropdown.Item href="#action/3.1">Alimentos</NavDropdown.Item>
                                 </NavLink>
@@ -43,7 +44,7 @@ const NavBar = () => {
 
                 
 
-                            <NavLink to={'/about'} className="name" >
+                            <NavLink to={'/about'} className="name m-3" >
                                 <Nav.Link eventKey={3} href="#memes" className="fs-5"> Nosotros</Nav.Link>
                             </NavLink>
 
@@ -54,13 +55,14 @@ const NavBar = () => {
                   
 
                
-                            <NavLink to={'/checkout'} className="name">
+                            <NavLink to={'/checkout'} className="name pb-3">
                                 <Nav.Link href="#deets" className=" mx-3 fs-6">
 
                                     <CartWidget />
                                    
                                 </Nav.Link>
                             </NavLink>
+
                         </Nav>
 
                     </Navbar.Collapse>

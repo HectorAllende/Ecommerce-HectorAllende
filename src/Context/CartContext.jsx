@@ -4,27 +4,41 @@ import { ItemsContext } from './ItemsContext';
 export const CartContext = createContext()
 
 const CartProvider = (props) => {
+    const init = JSON.parse(localStorage.getItem('carrito'))|| []
 
-    // const [productos1, setProductos1]= useState([])
-    const [carrito, setCarrito]= useState([])
+  
+    const [carrito, setCarrito]= useState(init)
     const [total, setTotal]= useState(0)
-
+ 
+ 
     const {productos}= useContext(ItemsContext)
 
-
-    const addCarrito = id =>{
-        // Verifica si el carrito no tiene ese id
-        const check = carrito.every(el =>{
-            return el.id !==id
-        })
-        
-        if(check){
-            const data = productos.filter(el => el.id === id)
-            setCarrito([...carrito, ...data])
-        }else{
-            alert("El producto se ha añadido al carrito")
-        }
+    const addCarrito = (data) => {
+        setCarrito([...carrito, data])
     }
+
+    const removeItem= id =>{
+        const newCarrito = carrito.filter(el => el.id !== id)
+        setCarrito(newCarrito)
+    }
+
+    const isInCart= id =>{
+        return carrito.some(el => el.id === id)
+    }
+
+    const calcularCantidad = () => {
+        return carrito.reduce((acc, el) => acc + el.cantidad, 0)
+    }
+    const vaciarCarrito = ()=>{
+        setCarrito([])
+    }
+
+
+
+    useEffect(()=>{
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+    },[carrito])
+
 
     useEffect(()=>{
         const obtenerTotal=()=>{
@@ -35,24 +49,25 @@ const CartProvider = (props) => {
             setTotal(resultado)
         }
         obtenerTotal()
-    },[carrito])
-    
-    // const value = {
-    //     productos: [productos],
-    //     carrito:[carrito, setCarrito],
-    //     total:[total, setTotal],
-    //     addCarrito:addCarrito
-    // }
+    },[carrito])    
+
 
 
     return ( 
         <CartContext.Provider
             value={{
+             
                 productos,
                 carrito,
                 total,
+                isInCart,
+                calcularCantidad,
                 addCarrito,
-                setCarrito
+                setCarrito,
+                removeItem,
+                setTotal,
+                vaciarCarrito
+           
             }}
         >
             {props.children}

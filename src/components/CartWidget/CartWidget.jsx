@@ -1,17 +1,22 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import { CartContext } from '../../Context/CartContext';
 
 
 const Carrito = () => {
+
+    const {calcularCantidad} = useContext(CartContext)
+
     return (
         <div className="row">
             <div className="col-12 d-flex flex-column ">
 
-                <div className="col-12 offset-3">              
-                    <span className="badge bg-secondary rounded-pill offset-4">3</span>
+                <div className="col-12 offset-3">
+
+                    {calcularCantidad()>0 ? <span className="badge bg-secondary rounded-pill offset-4">{calcularCantidad()}</span>: null }              
+                    
                 </div>   
 
-                <box-icon name='cart' color="white" animation="tada-hover" size="md" className="align-top text-start"></box-icon>
-      
+                <box-icon name='cart' color="white" size="md" className="align-top text-start"></box-icon>   
                
 
 

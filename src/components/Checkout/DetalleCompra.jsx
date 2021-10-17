@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import { CartContext } from '../../Context/CartContext';
 
-const Detalle = ({ productos }) => {
+const Detalle = () => {
 
-    console.log(productos)
+    const {carrito, total, calcularCantidad, vaciarCarrito} = useContext(CartContext)
 
     return (
         <>
@@ -10,46 +11,39 @@ const Detalle = ({ productos }) => {
 
                 <span className="text-muted fs-2 fw-lighter">Tu carrito</span>
 
-                <span className="badge bg-secondary rounded-pill">3</span>
+                <span className="badge bg-secondary rounded-pill">{calcularCantidad()}</span>
             </h4>
 
 
             <ul className="list-group mb-3 shadow bg-body rounded">
-                {productos.map(producto => (
+                {carrito.map(el => (
                     <>
                         <li className="list-group-item d-flex justify-content-between">
                             <div>
-                                <h6 className="my-0 fw-bold">{producto.name} </h6>
-                                <span className="text-muted fs-6 fw-light">cantidad: x</span>
+                                <h6 className="my-0 fw-bold">{el.name} </h6>
+                                <span className="text-muted fs-6 fw-light">cantidad: {el.cantidad}</span>
                             </div>
-                            <span className="text-muted">${producto.price}</span>
+                            <span className="text-muted">${el.price * el.cantidad}</span>
                         </li>
 
                     </>
                 ))}
             </ul>
 
-            {/* <form action="" className="card p-2 shadow bg-body rounded">
-                <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Cupon" />
-                    <div className="input-group-append">
-                        <button className="btn btn-secondary">Canjear</button>
-                    </div>
-                </div>
-            </form> */}
-
+ 
             <li className="list-group-item d-flex justify-content-between shadow bg-body rounded">
                             <div>
                                 <h6 className="my-0 fw-bold">Total</h6>
 
                             </div>
-                            <span className="text-muted">$</span>
+                            <span className="text-muted">${total}</span>
                         </li>
 
 
-            <div className="col-12 d-flex justify-content-center ">
+            <div className="d-grid gap-2 col-6 mx-auto mt-4 ">
+                <button className="btn btn-outline-secondary shadow rounded-pill btn-sm" onClick={vaciarCarrito}>Vaciar Carrito</button>
 
-                <button className="btn btn-outline-secondary mt-3 px-5 shadow rounded">Comprar</button>
+                <button className="btn btn-success shadow rounded-pill mt-3 btn-sm">Comprar</button>
             </div>
 
 

@@ -7,7 +7,8 @@ const Footer = () => {
     return (
         <>
 
-            <div class="bg-dark" id="navbarHeader">
+
+            <div class="bg-dark container-fluid">
                 <div class="container">
 
                     <div className="row">
@@ -58,47 +59,24 @@ const Footer = () => {
                             </NavLink>
 
 
-                            <NavLink to={'/contacto'} className="name">
-
-                                <p className="logo">Contacto</p>
-                            </NavLink>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                         </div>
 
+                    </div>
+
+                    <div className="row">
+                        <div className="col text-center text-white">
+                            <p className="lead text-muted">Vida Sana © 2021</p>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div className="row">
-                    <div className="col text-center text-white">
-                        <p className="lead text-muted">Vida Sana © 2021</p>
-                    </div>
-                </div>
 
             </div>
 
-
-        </div>
-
-        </> 
-     );
+        </>
+    );
 }
- 
+
 export default Footer;
