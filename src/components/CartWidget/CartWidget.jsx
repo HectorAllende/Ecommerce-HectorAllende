@@ -16,8 +16,8 @@ const Carrito = () => {
                     
                 </div>   
 
-                <box-icon name='cart' color="white" size="md" className="align-top text-start"></box-icon>   
-               
+                <box-icon name='cart' color="white" size="md" className="align-top text-start"></box-icon>
+              
 
 
 

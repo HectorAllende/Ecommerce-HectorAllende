@@ -58,6 +58,8 @@ const NavBar = () => {
                
                             <NavLink to={'/checkout'} className="name pb-3">
                                 <Nav.Link href="#deets" className=" mx-3 fs-6">
+               
+               
 
                                     {calcularCantidad()> 0 && <CartWidget />}
                                     
