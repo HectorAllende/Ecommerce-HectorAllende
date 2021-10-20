@@ -27,8 +27,6 @@ function App() {
           firebase
         }}
       >
-
-
         <ItemsProvider>
           <CartProvider>
             
