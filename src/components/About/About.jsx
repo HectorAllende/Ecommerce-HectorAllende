@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import scrollTop from '../utils/scrollTop';
 
+
 const About = () => {
 
   useEffect(()=>{
@@ -29,9 +30,9 @@ const About = () => {
           <p className="lead">Creemos en el valor de hacer las cosas bien, y eso significa ser responsables con el contexto en todos sus aspectos. </p>
         </div>
 
-        <div className="col-12 col-md-6 mb p-2">
+        <div className="col-12 col-md-6 mb p-2 imagen contenedor">
 
-          <img src="img/nosotros.jpg" alt="nosotros" className="img-fluid shadow-lg bg-body rounded" />
+          <img src="img/nosotros.jpg" alt="nosotros" className="img-fluid shadow-lg bg-body rounded imagen contenedor" />
 
         </div>
 

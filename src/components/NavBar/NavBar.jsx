@@ -3,6 +3,7 @@ import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
 import { CartContext } from '../../Context/CartContext'
+import './NavBar.css'
 
 const NavBar = () => {
 
@@ -13,8 +14,9 @@ const NavBar = () => {
 
             <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" className="sticky-top">
                 <Container>
-                    <NavLink to={'/'} className="name d-flex align-items-center">
-                        <Navbar.Brand href="#"> <h1 className="display-4 lead logo ">Vs</h1></Navbar.Brand>
+                    <NavLink to={'/'} className="name d-flex align-items-center mb-2">
+                        {/* <Navbar.Brand href="#"> <h1 className="display-4 lead logo ">Vs</h1></Navbar.Brand> */}
+                        <Navbar.Brand href="#"> <img src="img/logo1.svg" width="80px" alt="logo" className="logo"/></Navbar.Brand>
                     </NavLink>
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

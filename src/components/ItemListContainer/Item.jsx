@@ -3,6 +3,7 @@ import { ItemsContext } from '../../Context/ItemsContext';
 import { Card, Button } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
 import scrollTop from '../utils/scrollTop';
+import './carrito.css'
 
 
 const Item = ({ item }) => {
@@ -19,13 +20,13 @@ const Item = ({ item }) => {
         <>
             {cargando ? <p>Cargando...</p> : (
 
-                <Card style={{ width: '18rem' }} className="m-3 text-center g-0 shadow bg-body rounded">
+                <Card style={{ width: '18rem' }} className="m-3 text-center g-0 shadow bg-body rounded card ">
 
                     <NavLink to={`/item/${id}`}>
-                        <Card.Img variant="top" src={img1} />
+                        <Card.Img variant="top" src={img1} className="imagen1" />
                     </NavLink>
 
-                    <Card.Body>
+                    <Card.Body className="card-2">
 
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>{description}</Card.Text>
