@@ -22,6 +22,7 @@ Link donde corre la pagina  http://localhost:3000/
 
 ## Proyecto 
 
-![image](https://user-images.githubusercontent.com/54869462/136973996-11322f58-8491-46f1-a76a-9f6dd9a46f81.png)
+![image](https://user-images.githubusercontent.com/54869462/138390858-55ebb3f3-9191-47d2-95e0-446bafea8a56.png)
+
 
 
