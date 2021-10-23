@@ -13,7 +13,7 @@ const Checkout = () => {
 
     const { carrito, removeItem } = useContext(CartContext)
 
-
+    
     return (
 
         <>
@@ -47,7 +47,7 @@ const Checkout = () => {
                                         <div className="container">
                                             <div className="row">
 
-                                                <div className="col-12 border border-2 g-0 m-2 shadow bg-body rounded d-flex justify-content-between ">
+                                                <div className="col-12 border border-2 g-0 m-4 shadow bg-body rounded d-flex justify-content-between ">
 
                                                     <div className="">
                                                         <img src={el.img1} width="150" className="rounded-1 m-2" alt={el.name} />
@@ -57,7 +57,7 @@ const Checkout = () => {
                                                     <div className="mt-4">
                                                         <h3 className="lead">{el.name}</h3>
                                                         <p className="text-muted">{el.description}</p>
-
+                                                     
                                                         <p className="text-muted lead fs-5 fw-bold"> ${el.price}</p>
 
                                                     </div>
@@ -66,6 +66,8 @@ const Checkout = () => {
                                                     <div className="">
                                                         <button className=" count--button text-danger" onClick={() => removeItem(el.id)}><box-icon name='window-close' color="grey" size="sm"></box-icon></button>
                                                     </div>
+
+                                                    
 
 
                                                 </div>

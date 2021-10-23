@@ -13,6 +13,7 @@ import firebase, { FirebaseContext } from './firebase'
 
 import ItemsProvider from './Context/ItemsContext';
 import CartProvider from './Context/CartContext';
+import HeartProvider from './Context/HeartContext';
 import 'boxicons'
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       >
         <ItemsProvider>
           <CartProvider>
+            <HeartProvider>
             
             <BrowserRouter>
 
@@ -47,6 +49,7 @@ function App() {
               
               <Footer />
             </BrowserRouter>
+           </HeartProvider>
 
           </CartProvider>
         </ItemsProvider>

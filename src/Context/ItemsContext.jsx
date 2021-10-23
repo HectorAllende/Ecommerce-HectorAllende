@@ -19,7 +19,7 @@ const ItemsProvider = (props) => {
 
         const obtenerProductos = async () => {
 
-            firebase.db.collection('productos').onSnapshot(handleSnapshot)
+            firebase.db.collection('productos').orderBy("category", "asc").onSnapshot(handleSnapshot)
 
             function handleSnapshot(snapshot) {
                 const productos = snapshot.docs.map(doc => {
@@ -55,7 +55,6 @@ const ItemsProvider = (props) => {
         obtenerProductos()
 
         // eslint-disable-next-line
-  
     }, [id, category])
  
     return (

@@ -35,3 +35,7 @@
      margin: 20px;
     
  }
+
+ .heart{
+     cursor: pointer;
+ }

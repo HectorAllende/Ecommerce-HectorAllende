@@ -1,13 +1,46 @@
-import React,{useContext} from 'react'
+import React, { useContext } from 'react'
 import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
 import { CartContext } from '../../Context/CartContext'
+import { HeartContext } from '../../Context/HeartContext'
+import { ItemsContext } from '../../Context/ItemsContext'
+import { useParams } from 'react-router';
 import './NavBar.css'
 
 const NavBar = () => {
 
-    const {calcularCantidad} = useContext(CartContext)
+    const { heart, removeItem, vaciarHeart } = useContext(HeartContext)
+    const { calcularCantidad, addCarrito } = useContext(CartContext)
+
+    const { id } = useParams()
+
+    const { itemId, setId } = useContext(ItemsContext)
+
+    setId(id)
+
+    const { name, description, price, img1, category } = itemId
+
+
+
+    const handleAgregar = () => {
+        const newItem = {
+
+            name,
+            description,
+            price,
+            img1,
+            category,
+            cantidad: 1
+
+        }
+
+        addCarrito(newItem)
+        vaciarHeart()
+
+    }
+
+
 
     return (
         <>
@@ -16,7 +49,7 @@ const NavBar = () => {
                 <Container>
                     <NavLink to={'/'} className="name d-flex align-items-center mb-2">
                         {/* <Navbar.Brand href="#"> <h1 className="display-4 lead logo ">Vs</h1></Navbar.Brand> */}
-                        <Navbar.Brand href="#"> <img src="img/logo1.svg" width="80px" alt="logo" className="logo"/></Navbar.Brand>
+                        <Navbar.Brand href="#"> <img src="img/logo1.svg" width="80px" alt="logo" className="logo" /></Navbar.Brand>
                     </NavLink>
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -43,29 +76,105 @@ const NavBar = () => {
                                 </NavLink>
 
 
-                            </NavDropdown>        
+                            </NavDropdown>
 
-                
+
 
                             <NavLink to={'/about'} className="name m-3" >
                                 <Nav.Link eventKey={3} href="#memes" className="fs-5"> Nosotros</Nav.Link>
                             </NavLink>
+                            <div className="position-relative">
 
-                            {/* <NavLink to={"/contacto"} className="name">
 
-                                <Nav.Link href="#deets" className="fs-5">Contacto</Nav.Link>
-                            </NavLink> */}
-                  
 
-               
+
+                                <NavDropdown childBsPrefix="hola" className="position-relative fs-5 m-3" title={
+                                    <>
+                                        <box-icon name='heart' color="white"></box-icon>
+                                        {heart.length > 0 &&
+                                            <>
+                                                <span class="position-absolute button-0 start-55 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                                    <span class="visually-hidden">New alerts</span>
+
+                                                </span>
+
+                                            </>
+                                        }
+
+
+
+                                    </>
+                                } id="collasible-nav-dropdown">
+
+
+
+                                    <div className="d-flex flex-column">
+                                        <p className=" fst-itali text-start fw-light fs-5 mx-2 border-bottom">Lista de Deseos:</p>
+
+                                        {heart.map(el => (
+                                            <>
+                                                <NavDropdown.Item className="count--button">
+                                                    <div className="row shadow bg-body rounded px-1 count--button">
+                                                        <div className="col-12 d-flex align-items-stretch">
+
+                                                            <div className="col-4 d-flex align-items-center">
+                                                                <img src={el.img1} alt={el.name} width="50rem" height="50rem" className="" />
+                                                            </div>
+
+                                                            <div className="col-6 d-flex flex-column mx-1 text-center lh-1 py-1">
+
+                                                                <p className="fw-light">{el.name}</p>
+                                                                <p className="fw-light fw-bold text-muted">${el.price}</p>
+
+                                                            </div>
+                                                            <div className="col-2 count--button">
+
+                                                                <button className=" count--button text-danger d-block ms-1" onClick={() => removeItem(el.id)}><box-icon name='window-close' color="grey" size="sm"></box-icon></button>
+
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                    </div>
+
+
+
+                                                </NavDropdown.Item>
+
+                                            </>
+
+                                        ))}
+
+                                        {heart.length === 0 ?
+
+                                            <>
+                                                <p className="text-center text-muted">Lista Vacía</p>
+                                            </>
+                                            :
+                                            <div className="col-12 d-flex justify-content-center">
+                                                <button className="btn btn-outline-secondary shadow rounded-pill btn-sm m-2" onClick={handleAgregar}>Agregar lista al carrito</button>
+                                            </div>
+
+                                        }
+
+
+
+                                    </div>
+                                </NavDropdown>
+                            </div>
+
+
+
                             <NavLink to={'/checkout'} className="name pb-3">
-                                <Nav.Link href="#deets" className=" mx-3 fs-6">
-               
-               
+                                <Nav.Link href="#deets" className=" mx-2 fs-6">
 
-                                    {calcularCantidad()> 0 && <CartWidget />}
-                                    
-                                   
+
+
+                                    {calcularCantidad() > 0 && <CartWidget />}
+
+
                                 </Nav.Link>
                             </NavLink>
 

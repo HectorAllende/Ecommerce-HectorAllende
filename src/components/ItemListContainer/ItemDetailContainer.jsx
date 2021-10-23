@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { ItemsContext } from '../../Context/ItemsContext';
 import { CartContext } from '../../Context/CartContext';
+import { HeartContext } from '../../Context/HeartContext';
 import { Button } from 'react-bootstrap'
 import scrollTop from '../utils/scrollTop';
 import { Breadcrumb } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner'
 import ItemCount from './ItemCount';
-
+import './carrito.css'
 
 
 const ItemDetailContainer = () => {
@@ -22,6 +23,7 @@ const ItemDetailContainer = () => {
     const { itemId, setId, cargando } = useContext(ItemsContext)
 
     const { addCarrito, isInCart } = useContext(CartContext)
+    const { addHeart, isInHeart } = useContext(HeartContext)
 
     setId(id)
 
@@ -46,9 +48,31 @@ const ItemDetailContainer = () => {
         }
         if (cantidad > 0) {
             addCarrito(newItem)
+            console.log(newItem)
+
         }
 
     }
+
+    const handleHeart = () => {
+        const newItem = {
+            id,
+            name,
+            description,
+            price,
+            img1,
+            category,
+            cantidad
+
+        }
+        if (cantidad > 0) {
+
+            addHeart(newItem)
+        }
+
+    }
+
+
 
 
 
@@ -112,7 +136,7 @@ const ItemDetailContainer = () => {
 
 
                                             <Link to="/productos" className="btn btn-outline-secondary rounded-pill mb-3 btn-sm">Seguir comprando</Link>
-                                            
+
                                             <Link to="/checkout" className="btn btn-success rounded-pill btn-sm">Terminar compra</Link>
 
 
@@ -123,21 +147,52 @@ const ItemDetailContainer = () => {
                                     </>
                                     :
                                     <>
-                                        <div className="d-flex flex-column justify-content-start align-items-start mb-2">
-                                            <ItemCount
-                                                cantidad={cantidad}
-                                                setCantidad={setCantidad}
-                                                stock={stock}
-                                            />
+                                        <div className="d-flex">
 
-                                            <p className="text-muted fs-sm mt-2 fw-lighter">Stock: {stock} unidades.</p>
+
+                                            <div className="d-flex flex-column justify-content-start align-items-start mb-2">
+                                                <ItemCount
+                                                    cantidad={cantidad}
+                                                    setCantidad={setCantidad}
+                                                    stock={stock}
+                                                />
+
+
+                                                <p className="text-muted fs-sm mt-2 fw-lighter">Stock: {stock} unidades.</p>
+
+                                            </div>
+
+
+
+
+
+                                            {!isInHeart(id) && <>
+
+                                                <div className="d-flex align-items-star mt-1 align-self-start heart">
+
+                                                    <svg onClick={handleHeart} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart heart" viewBox="0 0 16 16">
+                                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                                                    </svg>
+
+                                                </div>
+
+
+                                            </>}
+
+
 
                                         </div>
 
-                                        <div className="col-12 col-md-6">
+
+                                        <div className="col-12 col-md-8 d-flex flex-column ">
+
                                             <Button variant="outline-secondary px-3 rounded-pill btn-sm" onClick={handleAgregar} >Agregar al carrito</Button>
 
                                         </div>
+
+
+
+
                                     </>
                                 }
                             </div>

@@ -1,22 +1,29 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { ItemsContext } from './ItemsContext';
 
+
 export const CartContext = createContext()
 
 const CartProvider = (props) => {
+
     const init = JSON.parse(localStorage.getItem('carrito'))|| []
 
   
     const [carrito, setCarrito]= useState(init)
     const [total, setTotal]= useState(0)
- 
+    
  
     const {productos}= useContext(ItemsContext)
+    
+
 
     const addCarrito = (data) => {
+ 
         setCarrito([...carrito, data])
+        console.log(data)
     }
 
+    
     const removeItem= id =>{
         const newCarrito = carrito.filter(el => el.id !== id)
         setCarrito(newCarrito)
@@ -29,7 +36,8 @@ const CartProvider = (props) => {
     const calcularCantidad = () => {
         return carrito.reduce((acc, el) => acc + el.cantidad, 0)
     }
-    const vaciarCarrito = ()=>{
+    const vaciarCarrito = (e)=>{
+        e.stopPropagation()
         setCarrito([])
     }
 
