@@ -9,7 +9,7 @@ import './NavBar.css'
 const NavBar = () => {
 
     const { heart, removeItem } = useContext(HeartContext)
-    const { calcularCantidad, addCarrito } = useContext(CartContext)
+    const { calcularCantidad, addCarrito, isInCart } = useContext(CartContext)
 
 
 
@@ -101,16 +101,22 @@ const NavBar = () => {
                                                             <div className="d-flex flex-column col-2 count--button">
 
                                                                 <button className=" count--button text-danger d-block ms-1" onClick={() => removeItem(el.id)}><box-icon name='window-close' color="grey" size="sm"></box-icon></button>
-                                                               
+
 
                                                             </div>
 
 
                                                         </div>
-                                                        <button onClick={()=> {
-                                                                    addCarrito(el);
-                                                                    removeItem(el.id)
-                                                                }} className="btn btn-outline-secondary  rounded-pill btn-sm">Agregar carrito</button>
+                                                        <button onClick={() => {
+                                                            {
+                                                                isInCart(el.id) ? removeItem(el.id) :
+
+                                                                addCarrito(el);
+                                                                removeItem(el.id)
+
+
+                                                            }
+                                                        }} className="btn btn-outline-secondary  rounded-pill btn-sm">Agregar carrito</button>
 
                                                     </div>
 
@@ -122,9 +128,9 @@ const NavBar = () => {
 
                                         ))}
 
-                                        {heart.length === 0 &&<p className="text-center text-muted">Lista Vacía</p> }
+                                        {heart.length === 0 && <p className="text-center text-muted">Lista Vacía</p>}
 
-                                          
+
 
 
 
