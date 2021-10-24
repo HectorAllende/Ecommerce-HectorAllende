@@ -108,8 +108,14 @@ const NavBar = () => {
 
                                                         </div>
                                                         <button onClick={() => {
+                                                            // eslint-disable-next-line
                                                             {
-                                                                isInCart(el.id) ? removeItem(el.id) :
+                                                            
+                                                                isInCart(el.id) ? 
+                                                                
+                                                                removeItem(el.id) 
+                                                                // eslint-disable-next-line
+                                                                :
 
                                                                 addCarrito(el);
                                                                 removeItem(el.id)
