@@ -17,6 +17,33 @@ const ItemsProvider = (props) => {
     useEffect(() => {
         // eslint-disable-next-line
 
+        const data = sessionStorage.getItem("productos")
+
+        if(data){
+            let productos = JSON.parse(data)
+
+            setCargando(true)
+
+            setTimeout(() => {
+
+                setCargando(false)
+
+                if (category) {
+                    setItems(productos.filter(el => el.category === category))
+                } else {
+                    setItems(productos)
+                }
+
+            }, 500);
+
+            const includesId = productos.filter(el => el.id === id)[0]
+            if (includesId) {
+                SetItemId(includesId)
+            }
+
+            return setProductos(productos)
+        }
+
         const obtenerProductos = async () => {
 
             firebase.db.collection('productos').orderBy("category", "asc").onSnapshot(handleSnapshot)
@@ -28,6 +55,8 @@ const ItemsProvider = (props) => {
                         ...doc.data()
                     }
                 })
+
+                sessionStorage.setItem("productos", JSON.stringify(productos))
 
                 setCargando(true)
 

@@ -16,7 +16,6 @@ const HeartProvider = (props) => {
         setHeart(nuevoHeart)
     }
 
-
     const isInHeart=id=>{
         return heart.some(el => el.id ===id)
     }
