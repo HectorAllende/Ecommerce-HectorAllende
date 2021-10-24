@@ -48,7 +48,7 @@ const ItemDetailContainer = () => {
         }
         if (cantidad > 0) {
             addCarrito(newItem)
-            console.log(newItem)
+          
 
         }
 
@@ -68,6 +68,7 @@ const ItemDetailContainer = () => {
         if (cantidad > 0) {
 
             addHeart(newItem)
+            
         }
 
     }

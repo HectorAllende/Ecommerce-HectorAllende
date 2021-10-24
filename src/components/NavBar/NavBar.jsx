@@ -4,41 +4,12 @@ import { NavLink } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
 import { CartContext } from '../../Context/CartContext'
 import { HeartContext } from '../../Context/HeartContext'
-import { ItemsContext } from '../../Context/ItemsContext'
-import { useParams } from 'react-router';
 import './NavBar.css'
 
 const NavBar = () => {
 
-    const { heart, removeItem, vaciarHeart } = useContext(HeartContext)
+    const { heart, removeItem } = useContext(HeartContext)
     const { calcularCantidad, addCarrito } = useContext(CartContext)
-
-    const { id } = useParams()
-
-    const { itemId, setId } = useContext(ItemsContext)
-
-    setId(id)
-
-    const { name, description, price, img1, category } = itemId
-
-
-
-    const handleAgregar = () => {
-        const newItem = {
-
-            name,
-            description,
-            price,
-            img1,
-            category,
-            cantidad: 1
-
-        }
-
-        addCarrito(newItem)
-        vaciarHeart()
-
-    }
 
 
 
@@ -127,15 +98,19 @@ const NavBar = () => {
                                                                 <p className="fw-light fw-bold text-muted">${el.price}</p>
 
                                                             </div>
-                                                            <div className="col-2 count--button">
+                                                            <div className="d-flex flex-column col-2 count--button">
 
                                                                 <button className=" count--button text-danger d-block ms-1" onClick={() => removeItem(el.id)}><box-icon name='window-close' color="grey" size="sm"></box-icon></button>
+                                                               
 
                                                             </div>
 
 
                                                         </div>
-
+                                                        <button onClick={()=> {
+                                                                    addCarrito(el);
+                                                                    removeItem(el.id)
+                                                                }} className="btn btn-outline-secondary  rounded-pill btn-sm">Agregar carrito</button>
 
                                                     </div>
 
@@ -147,17 +122,9 @@ const NavBar = () => {
 
                                         ))}
 
-                                        {heart.length === 0 ?
+                                        {heart.length === 0 &&<p className="text-center text-muted">Lista Vacía</p> }
 
-                                            <>
-                                                <p className="text-center text-muted">Lista Vacía</p>
-                                            </>
-                                            :
-                                            <div className="col-12 d-flex justify-content-center">
-                                                <button className="btn btn-outline-secondary shadow rounded-pill btn-sm m-2" onClick={handleAgregar}>Agregar lista al carrito</button>
-                                            </div>
-
-                                        }
+                                          
 
 
 
