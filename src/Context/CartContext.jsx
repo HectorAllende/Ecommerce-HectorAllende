@@ -61,11 +61,17 @@ const CartProvider = (props) => {
     }, [carrito])
 
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
 
     return (
         <CartContext.Provider
             value={{
-
+                show,
                 productos,
                 carrito,
                 total,
@@ -75,7 +81,9 @@ const CartProvider = (props) => {
                 setCarrito,
                 removeItem,
                 setTotal,
-                vaciarCarrito
+                vaciarCarrito,
+                handleShow,
+                handleClose
 
             }}
         >

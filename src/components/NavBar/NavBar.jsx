@@ -27,7 +27,7 @@ const NavBar = () => {
 
                         <Nav className="ms-auto d-flex align-items-start align-items-end ">
 
-                            <NavDropdown title="Productos" id="collasible-nav-dropdown" className="fs-5 m-3">
+                            <NavDropdown title="Productos" id="collasible-nav-dropdown" className="fs-5 m-3 fw-bolder titulo">
                                 <NavLink to={'/productos/Alimentos'} className="name">
                                     <NavDropdown.Item href="#action/3.1">Alimentos</NavDropdown.Item>
                                 </NavLink>
@@ -47,7 +47,7 @@ const NavBar = () => {
                             </NavDropdown>
 
                             <NavLink to={'/about'} className="name m-3" >
-                                <Nav.Link eventKey={3} href="#memes" className="fs-5"> Nosotros</Nav.Link>
+                                <Nav.Link eventKey={3} href="#memes" className="fs-5 fw-bolder titulo"> Nosotros</Nav.Link>
                             </NavLink>
                             <div className="position-relative">
 

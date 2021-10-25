@@ -1,9 +1,10 @@
 import React,{useContext} from 'react';
 import { CartContext } from '../../Context/CartContext';
+import FormOrder from './FormOrder';
 
 const Detalle = () => {
 
-    const {carrito, total, calcularCantidad, vaciarCarrito} = useContext(CartContext)
+    const { carrito, total, calcularCantidad, vaciarCarrito , handleShow} = useContext(CartContext)
 
     return (
         <>
@@ -43,8 +44,12 @@ const Detalle = () => {
             <div className="d-grid gap-2 col-6 mx-auto mt-4 ">
                 <button className="btn btn-outline-secondary shadow rounded-pill btn-sm" onClick={vaciarCarrito}>Vaciar Carrito</button>
 
-                <button className="btn btn-success shadow rounded-pill mt-3 btn-sm">Comprar</button>
+                <button 
+                    onClick={handleShow}
+                className="btn btn-success shadow rounded-pill mt-3 btn-sm">Comprar</button>
             </div>
+
+            <FormOrder/>
 
 
         </>

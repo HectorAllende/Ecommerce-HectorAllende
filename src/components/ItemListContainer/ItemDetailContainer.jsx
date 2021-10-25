@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { ItemsContext } from '../../Context/ItemsContext';
 import { CartContext } from '../../Context/CartContext';
@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
 
     const { id } = useParams()
 
-    const { itemId, setId, cargando } = useContext(ItemsContext)
+    const { itemId, setId, cargando, cantidad, setCantidad  } = useContext(ItemsContext)
 
     const { addCarrito, isInCart } = useContext(CartContext)
     const { addHeart, isInHeart, removeItem } = useContext(HeartContext)
@@ -33,7 +33,7 @@ const ItemDetailContainer = () => {
 
 
 
-    const [cantidad, setCantidad] = useState(1)
+
 
     const handleAgregar = () => {
         const newItem = {
@@ -150,7 +150,7 @@ const ItemDetailContainer = () => {
                                                 />
 
 
-                                                <p className="text-muted fs-sm mt-2 fw-lighter">Stock: {stock} unidades.</p>
+                                                <p className="text-muted fs-sm mt-2 fw-lighter">Stock: {stock} unidades</p>
 
                                             </div>
 

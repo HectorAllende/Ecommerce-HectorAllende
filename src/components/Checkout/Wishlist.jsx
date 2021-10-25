@@ -1,9 +1,9 @@
-import React,{useContext} from 'react';
-import {NavDropdown} from 'react-bootstrap'
+import React, { useContext } from 'react';
+import { NavDropdown } from 'react-bootstrap'
 import { HeartContext } from '../../Context/HeartContext';
 import { CartContext } from '../../Context/CartContext';
 
-const Wishlist = ({el}) => {
+const Wishlist = ({ el }) => {
 
     const { removeItem } = useContext(HeartContext)
     const { addCarrito, isInCart } = useContext(CartContext)
@@ -12,9 +12,9 @@ const Wishlist = ({el}) => {
 
         <NavDropdown.Item className="count--button">
             <div className="row shadow bg-body rounded px-1 count--button">
-                <div className="col-12 d-flex align-items-stretch">
+                <div className="col-12 d-flex align-items-stretch count--button">
 
-                    <div className="col-4 d-flex align-items-center">
+                    <div className="col-4 d-flex align-items-center count--button">
                         <img src={el.img1} alt={el.name} width="50rem" height="50rem" className="" />
                     </div>
 
@@ -32,7 +32,30 @@ const Wishlist = ({el}) => {
 
 
                 </div>
-                <button onClick={() => {
+
+
+                {isInCart(el.id) ?
+                    <>
+
+                        <p className="text-muted fs-sm fw-light">Producto ya agregado al carrito</p>
+                       
+
+                    </>
+                    :
+                    <>
+                        <button
+                            onClick={() => {
+                                addCarrito(el);
+                                removeItem(el.id)
+                            }}
+                            className="btn btn-outline-secondary  rounded-pill btn-sm mb-2">Agregar al carrito </button>
+
+                    </>
+
+
+                }
+
+                {/* <button onClick={() => {
                     // eslint-disable-next-line
                     {
 
@@ -47,7 +70,7 @@ const Wishlist = ({el}) => {
 
 
                     }
-                }} className="btn btn-outline-secondary  rounded-pill btn-sm">Agregar carrito</button>
+                }} className="btn btn-outline-secondary  rounded-pill btn-sm mb-2">Agregar carrito</button> */}
 
             </div>
 

@@ -12,7 +12,6 @@ const Checkout = () => {
     }, [])
 
     const { carrito, removeItem } = useContext(CartContext)
-
     
     return (
 
@@ -62,12 +61,10 @@ const Checkout = () => {
 
                                                     </div>
 
-
+                                               
                                                     <div className="">
                                                         <button className=" count--button text-danger" onClick={() => removeItem(el.id)}><box-icon name='window-close' color="grey" size="sm"></box-icon></button>
-                                                    </div>
-
-                                                    
+                                                    </div>                
 
 
                                                 </div>

@@ -22,3 +22,7 @@
 .count--button:focus{
     outline: none;
 }
+.titulo{
+    
+    font-family: 'Faustina', serif;
+}

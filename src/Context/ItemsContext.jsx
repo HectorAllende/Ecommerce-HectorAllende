@@ -11,6 +11,7 @@ const ItemsProvider = (props) => {
     const [category, setCategory] = useState()
     const [id, setId] = useState()
     const [itemId, SetItemId] = useState([])
+    const [cantidad, setCantidad] = useState(1)
 
     const { firebase } = useContext(FirebaseContext)
 
@@ -89,12 +90,14 @@ const ItemsProvider = (props) => {
     return (
         <ItemsContext.Provider
             value={{
+                cantidad,
                 items,
                 productos,
                 cargando,
                 itemId,
                 setCategory,
-                setId
+                setId,
+                setCantidad
             }}
         >
 
