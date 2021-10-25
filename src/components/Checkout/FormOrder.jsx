@@ -13,7 +13,7 @@ const FormOrder = () => {
         <>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header>
-                    <Modal.Title>Completa tus datos</Modal.Title>
+                    <Modal.Title>Completa tus datos y confirma el pedido</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
 

@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 
 const Order = () => {
 
-    const{showOrder, handleCloseOrder }= useContext(CartContext)
+    const{showOrder, handleCloseOrder, orderId }= useContext(CartContext)
 
     return (
 
@@ -19,7 +19,8 @@ const Order = () => {
                 <Modal.Title>Gracias por tu comprar en Vida Sana</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              Tu pedido esta confirmado, retirar con el ID: 
+              <p>Tu pedido esta confirmado, puedes retirar con este ID:</p> 
+              <p className="fs-6 fw-bolder" >{orderId} </p>
               
             </Modal.Body>
             <Modal.Footer>

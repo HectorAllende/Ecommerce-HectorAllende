@@ -1,6 +1,6 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { ItemsContext } from './ItemsContext';
-
+import { FirebaseContext } from '../firebase';
 
 
 
@@ -8,7 +8,8 @@ export const CartContext = createContext()
 
 const CartProvider = (props) => {
 
-  
+    
+    const {firebase}= useContext(FirebaseContext)
 
     const init = JSON.parse(localStorage.getItem('carrito')) || []
    
@@ -19,8 +20,7 @@ const CartProvider = (props) => {
 
     const { productos } = useContext(ItemsContext)
     
-
-
+    
 
     const addCarrito = (data) => {
 
@@ -70,12 +70,17 @@ const CartProvider = (props) => {
     const handleShow = () => setShow(true);
 
 
+    const [showTerminos, setShowTerminos] = useState(false);
+
+    const handleCloseTerminos = () => setShowTerminos(false);
+    const handleShowTerminos = () => setShowTerminos(true);
+
+  
     const [showOrder, setShowOrder] = useState(false);
 
     const handleCloseOrder = () =>{
         setShow(false)
         setShowOrder(false)
-       
         setCarrito([])
       
     } 
@@ -83,6 +88,58 @@ const CartProvider = (props) => {
         setShow(false)
         setShowOrder(true)
     }
+
+    const [orderClient, setOrderClient] = useState({
+        nombre:'',
+        apellido:'',
+        email:'',
+        telefono:'',
+        ciudad:'',
+        provincia:'',
+        comentarios:'',
+        creado: Date.now(),
+        
+    })
+
+    const handleChangeCliente = e => {
+        e.preventDefault()
+        setOrderClient({
+            ...orderClient,
+            [e.target.name]:  e.target.value
+        })
+    }
+    const [orderId, setOrderId ] =useState()
+
+
+    const crearOrden = ()=>{
+
+        try {
+            const orden = {
+                cliente: orderClient,
+                productos:[...carrito],
+                totalPagar: total,
+                
+            }
+    
+            firebase.db.collection('ordenes').add(orden).then(({id})=>{
+                setOrderId(id)
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+
+
+            
+        } catch (error) {
+            console.log(error);
+        }
+        
+
+
+
+
+    }
+
         
      
 
@@ -93,9 +150,11 @@ const CartProvider = (props) => {
             value={{
                 show,
                 showOrder,
+                showTerminos,
                 productos,
                 carrito,
                 total,
+                orderId,
                 isInCart,
                 calcularCantidad,
                 addCarrito,
@@ -106,8 +165,13 @@ const CartProvider = (props) => {
                 handleShow,
                 handleClose,
                 handleCloseOrder,
+                handleShowTerminos,
+                handleCloseTerminos,
                 handleShowOrder,
-                setShowOrder
+                setShowOrder,
+                handleChangeCliente,
+                crearOrden,
+               
             }}
         >
             {props.children}

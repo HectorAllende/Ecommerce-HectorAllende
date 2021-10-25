@@ -11,7 +11,7 @@ const Home = () => {
 
     return (
         <div className="container .bg-light">
-            <div className="row d-flex justify-content-center align-items-center mb-5">
+            <div className="row d-flex justify-content-center align-items-center mb-4">
                 <div className="col-12 col-md-6 mt-5 titulo">
 
                     <p className="fs-3 text-muted">Somos <span className="fs-2 mx-2 fw-bold lead text-success ">Vida Sana</span></p>
@@ -49,7 +49,7 @@ const Home = () => {
             </div>
 
 
-            <div className="row mt-5 d-flex justify-content-between align-items-center py-2">
+            <div className="row d-flex justify-content-between align-items-center">
 
                 <div className="col-12 col-md-4 text-center text-md-start mb-4">
                     <h5 className="text-muted">Disfrutá tu tiempo

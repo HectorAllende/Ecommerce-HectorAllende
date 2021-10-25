@@ -3,11 +3,12 @@ import { CartContext } from '../../Context/CartContext';
 import { Form, Row, Col, Button, InputGroup } from 'react-bootstrap'
 
 
+
 const Formulario = () => {
 
 
   const [validated, setValidated] = useState(false);
-  const { handleShowOrder } = useContext(CartContext)
+  const { handleShowOrder, handleChangeCliente, crearOrden, handleShowTerminos } = useContext(CartContext)
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -20,6 +21,7 @@ const Formulario = () => {
 
     if (form.checkValidity() === true) {
       handleShowOrder()
+      crearOrden()
       event.preventDefault();
       event.stopPropagation();
     }
@@ -32,30 +34,34 @@ const Formulario = () => {
 
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-2">
-          <Form.Group md="4" controlId="validationCustom01" className="mb-2">
+          <Form.Group as={Col} md="6" controlId="validationCustom01" className="mb-2">
             <Form.Label>Nombre</Form.Label>
             <Form.Control
               required
               type="text"
+              name="nombre"
               placeholder="Tu mombre"
+              onChange={handleChangeCliente}
 
             />
             <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group md="4" controlId="validationCustom02" className="mb-2">
+          <Form.Group as={Col} md="6" controlId="validationCustom02" className="mb-2">
             <Form.Label>Apellido</Form.Label>
 
             <Form.Control
               required
               type="text"
               placeholder="Tu apellido"
+              name="apellido"
+              onChange={handleChangeCliente}
 
             />
             <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group md="4" controlId="validationCustomUsername" className="mb-2">
+          <Form.Group as={Col} md="6" controlId="validationCustomEmail" className="mb-2">
 
             <Form.Label>Mail</Form.Label>
             <InputGroup hasValidation>
@@ -63,9 +69,11 @@ const Formulario = () => {
 
               <Form.Control
                 type="email"
-                placeholder="Mail"
+                placeholder="Tu mail"
                 aria-describedby="inputGroupPrepend"
                 required
+                name="email"
+                onChange={handleChangeCliente}
               />
 
               <Form.Control.Feedback type="invalid">
@@ -73,43 +81,74 @@ const Formulario = () => {
               </Form.Control.Feedback>
 
             </InputGroup>
+
           </Form.Group>
+          <Form.Group as={Col} md="6" controlId="validationCustom06" className="mb-2">
+            <Form.Label>Telefono</Form.Label>
+            <Form.Control
+             type="tel"
+             placeholder="Tu celular"
+             required
+             name="telefono"
+             onChange={handleChangeCliente} 
+            />
+            <Form.Control.Feedback type="invalid">
+              Ingrese un numero de contacto.
+            </Form.Control.Feedback>
+          </Form.Group>
+
 
           <Form.Group as={Col} md="6" controlId="validationCustom03" className="mb-2">
             <Form.Label>Ciudad</Form.Label>
-            <Form.Control type="text" placeholder="Ciudad" required />
+            <Form.Control
+              type="text"
+              placeholder="Tu ciudad"
+              required
+              name="ciudad"
+              onChange={handleChangeCliente}
+            />
             <Form.Control.Feedback type="invalid">
               Ingrese una ciudad.
             </Form.Control.Feedback>
           </Form.Group>
+
           <Form.Group as={Col} md="6" controlId="validationCustom04" className="mb-2">
             <Form.Label>Provincia</Form.Label>
-            <Form.Control type="text" placeholder="Provincia" required />
+            <Form.Control
+              type="text"
+              placeholder="Tu provincia"
+              required
+              name="provincia"
+              onChange={handleChangeCliente}
+            />
             <Form.Control.Feedback type="invalid">
               Ingrese una provincia.
             </Form.Control.Feedback>
           </Form.Group>
 
-          {/* <Form.Group  md="3" controlId="validationCustom05" className="mb-2">
-            <Form.Label>CP</Form.Label>
-            <Form.Control type="text" placeholder="Código postal" required />
-            <Form.Control.Feedback type="invalid">
-              Ingrese un codigo postal.
-            </Form.Control.Feedback>
-          </Form.Group> */}
+          <Form.Group md="3" controlId="validationCustom05" className="mb-2">
+            <Form.Label>Comentarios</Form.Label>
+            <Form.Control
+              as="textarea"
+              placeholder="Ingrese comentarios o aclaración"
+              style={{ height: '60px' }}
+              name="comentarios"
+              onChange={handleChangeCliente}
+
+            />
+          </Form.Group>
 
         </Row>
 
-        <Form.Group className="mb-1">
+        <Form.Group className="mb-1 fs-sm">
           <Form.Check
-            required
-            label="Agree to terms and conditions"
-            feedback="You must agree before submitting."
+            required           
+            label="Acepto términos y condiciones"
+            feedback="Debe aceptar terminos y condiciones."
             feedbackType="invalid"
           />
+              <a className="ms-4" onClick={()=>handleShowTerminos()}>Ver Términos</a>
         </Form.Group>
-
-
         <Button type="submit" className="btn btn-success shadow rounded-pill mt-3">Confirmar Compra</Button>
 
       </Form>

@@ -2,6 +2,7 @@ import React,{useContext} from 'react';
 import { CartContext } from '../../Context/CartContext';
 import FormOrder from './FormOrder';
 import Order from './Order'
+import Terminos from './Terminos';
 
 const Detalle = () => {
 
@@ -55,6 +56,7 @@ const Detalle = () => {
 
             <FormOrder/>
             <Order/>
+            <Terminos/>
 
 
 
