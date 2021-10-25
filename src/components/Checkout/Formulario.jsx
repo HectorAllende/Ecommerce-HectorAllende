@@ -1,88 +1,106 @@
-import React, {useState} from 'react';
-
-import {Form, Row, Button, InputGroup} from 'react-bootstrap'
+import React, { useContext, useState } from 'react';
+import { CartContext } from '../../Context/CartContext';
+import { Form, Row, Col, Button, InputGroup } from 'react-bootstrap'
 
 
 const Formulario = () => {
- 
 
-        const [validated, setValidated] = useState(false);
-      
-        const handleSubmit = (event) => {
-          const form = event.currentTarget;
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-      
-          setValidated(true);
-        }
 
-    return (
-        <>
+  const [validated, setValidated] = useState(false);
+  const { handleShowOrder } = useContext(CartContext)
 
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <Row className="mb-3">
-          <Form.Group  md="4" controlId="validationCustom01">
-            <Form.Label>First name</Form.Label>
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+
+
+    }
+
+    if (form.checkValidity() === true) {
+      handleShowOrder()
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  }
+
+  return (
+    <>
+
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Row className="mb-2">
+          <Form.Group md="4" controlId="validationCustom01" className="mb-2">
+            <Form.Label>Nombre</Form.Label>
             <Form.Control
               required
               type="text"
-              placeholder="First name"
-              defaultValue="Mark"
+              placeholder="Tu mombre"
+
             />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group  md="4" controlId="validationCustom02">
-            <Form.Label>Last name</Form.Label>
+
+          <Form.Group md="4" controlId="validationCustom02" className="mb-2">
+            <Form.Label>Apellido</Form.Label>
+
             <Form.Control
               required
               type="text"
-              placeholder="Last name"
-              defaultValue="Otto"
+              placeholder="Tu apellido"
+
             />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
           </Form.Group>
-          <Form.Group  md="4" controlId="validationCustomUsername">
-            <Form.Label>Username</Form.Label>
+
+          <Form.Group md="4" controlId="validationCustomUsername" className="mb-2">
+
+            <Form.Label>Mail</Form.Label>
             <InputGroup hasValidation>
-              <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+
+
               <Form.Control
-                type="text"
-                placeholder="Username"
+                type="email"
+                placeholder="Mail"
                 aria-describedby="inputGroupPrepend"
                 required
               />
+
               <Form.Control.Feedback type="invalid">
-                Please choose a username.
+                Ingrese un mail por favor.
               </Form.Control.Feedback>
+
             </InputGroup>
           </Form.Group>
+
+          <Form.Group as={Col} md="6" controlId="validationCustom03" className="mb-2">
+            <Form.Label>Ciudad</Form.Label>
+            <Form.Control type="text" placeholder="Ciudad" required />
+            <Form.Control.Feedback type="invalid">
+              Ingrese una ciudad.
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="6" controlId="validationCustom04" className="mb-2">
+            <Form.Label>Provincia</Form.Label>
+            <Form.Control type="text" placeholder="Provincia" required />
+            <Form.Control.Feedback type="invalid">
+              Ingrese una provincia.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          {/* <Form.Group  md="3" controlId="validationCustom05" className="mb-2">
+            <Form.Label>CP</Form.Label>
+            <Form.Control type="text" placeholder="Código postal" required />
+            <Form.Control.Feedback type="invalid">
+              Ingrese un codigo postal.
+            </Form.Control.Feedback>
+          </Form.Group> */}
+
         </Row>
-        <Row className="mb-3">
-          <Form.Group  md="6" controlId="validationCustom03">
-            <Form.Label>City</Form.Label>
-            <Form.Control type="text" placeholder="City" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid city.
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group  md="3" controlId="validationCustom04">
-            <Form.Label>State</Form.Label>
-            <Form.Control type="text" placeholder="State" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid state.
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group  md="3" controlId="validationCustom05">
-            <Form.Label>Zip</Form.Label>
-            <Form.Control type="text" placeholder="Zip" required />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid zip.
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-        <Form.Group className="mb-3">
+
+        <Form.Group className="mb-1">
           <Form.Check
             required
             label="Agree to terms and conditions"
@@ -90,12 +108,15 @@ const Formulario = () => {
             feedbackType="invalid"
           />
         </Form.Group>
-        <Button type="submit">Submit form</Button>
+
+
+        <Button type="submit" className="btn btn-success shadow rounded-pill mt-3">Confirmar Compra</Button>
+
       </Form>
 
-      </>
-       
-    );
+    </>
+
+  );
 }
 
 export default Formulario

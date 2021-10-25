@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../Context/CartContext';
 import {Button, Modal } from 'react-bootstrap'
 import Formulario from './Formulario';
+import Order from './Order';
 
 const FormOrder = () => {
     const{show, handleClose }= useContext(CartContext)
@@ -22,13 +23,13 @@ const FormOrder = () => {
                 </Modal.Body>
                
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
+                    <Button variant="secondary shadow rounded-pill mt-3 btn-sm" onClick={handleClose}>
+                        Seguir comprando
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
+             
                 </Modal.Footer>
+
+            
             </Modal>
         </>
     );

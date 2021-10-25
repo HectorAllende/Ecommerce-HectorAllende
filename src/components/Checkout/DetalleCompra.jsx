@@ -1,10 +1,11 @@
 import React,{useContext} from 'react';
 import { CartContext } from '../../Context/CartContext';
 import FormOrder from './FormOrder';
+import Order from './Order'
 
 const Detalle = () => {
 
-    const { carrito, total, calcularCantidad, vaciarCarrito , handleShow} = useContext(CartContext)
+    const { carrito, total, calcularCantidad, vaciarCarrito , handleShow, handleShowOrder} = useContext(CartContext)
 
     return (
         <>
@@ -47,9 +48,14 @@ const Detalle = () => {
                 <button 
                     onClick={handleShow}
                 className="btn btn-success shadow rounded-pill mt-3 btn-sm">Comprar</button>
+                    
+
+
             </div>
 
             <FormOrder/>
+            <Order/>
+
 
 
         </>
