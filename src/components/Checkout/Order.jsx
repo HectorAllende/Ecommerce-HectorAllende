@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import { CartContext } from '../../Context/CartContext';
 import {Button, Modal } from 'react-bootstrap'
-
+import {Link} from 'react-router-dom'
 
 const Order = () => {
 
@@ -16,15 +16,18 @@ const Order = () => {
             keyboard={false}
         >
             <Modal.Header>
-                <Modal.Title>Gracias por tu compra</Modal.Title>
+                <Modal.Title>Gracias por tu comprar en Vida Sana</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              Retira tu pedido con el numero de ID: .
+              Tu pedido esta confirmado, retirar con el ID: 
+              
             </Modal.Body>
             <Modal.Footer>
+                <Link to='/'>
                 <Button variant="secondary" onClick={handleCloseOrder}>
-                    Volver a Inicio
+                    Volver Inicio
                 </Button>
+                </Link>
                
             </Modal.Footer>
         </Modal>

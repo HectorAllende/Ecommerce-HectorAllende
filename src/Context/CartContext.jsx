@@ -1,15 +1,17 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { ItemsContext } from './ItemsContext';
-import {useHistory } from "react-router-dom"
+
+
 
 
 export const CartContext = createContext()
 
 const CartProvider = (props) => {
-    const history = useHistory()
+
+  
 
     const init = JSON.parse(localStorage.getItem('carrito')) || []
-
+   
 
     const [carrito, setCarrito] = useState(init)
     const [total, setTotal] = useState(0)
@@ -73,9 +75,9 @@ const CartProvider = (props) => {
     const handleCloseOrder = () =>{
         setShow(false)
         setShowOrder(false)
-
+       
         setCarrito([])
-        history.push("/")
+      
     } 
     const handleShowOrder = () => {
         setShow(false)

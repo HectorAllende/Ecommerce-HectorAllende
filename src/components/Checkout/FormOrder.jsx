@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../Context/CartContext';
 import {Button, Modal } from 'react-bootstrap'
 import Formulario from './Formulario';
-import Order from './Order';
+
 
 const FormOrder = () => {
     const{show, handleClose }= useContext(CartContext)
