@@ -141,16 +141,17 @@ const Formulario = () => {
 
         </Row>
 
-        <Form.Group className="mb-1 fs-sm">
+        <Form.Group className="mb-2 fs-sm">
           <Form.Check
             required           
             label="Acepto términos y condiciones"
             feedback="Debe aceptar terminos y condiciones."
             feedbackType="invalid"
           />
-              <a className="ms-4" onClick={()=>handleShowTerminos()}>Ver Términos</a>
+           <button className="ms-3 btn count--button text-muted btn-sm" onClick={()=>handleShowTerminos()}>Ver Términos</button>
         </Form.Group>
-        <Button type="submit" className="btn btn-success shadow rounded-pill mt-3">Confirmar Compra</Button>
+
+        <Button type="submit" className="btn btn-success shadow rounded-pill mt-4">Confirmar Compra</Button>
 
       </Form>
 

@@ -6,7 +6,7 @@ import Terminos from './Terminos';
 
 const Detalle = () => {
 
-    const { carrito, total, calcularCantidad, vaciarCarrito , handleShow, handleShowOrder} = useContext(CartContext)
+    const { carrito, total, calcularCantidad, vaciarCarrito , handleShow} = useContext(CartContext)
 
     return (
         <>
