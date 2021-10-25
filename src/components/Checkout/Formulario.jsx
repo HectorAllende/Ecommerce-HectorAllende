@@ -59,6 +59,7 @@ const Formulario = () => {
 
             />
             <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
+  
           </Form.Group>
 
           <Form.Group as={Col} md="6" controlId="validationCustomEmail" className="mb-2">
@@ -77,7 +78,7 @@ const Formulario = () => {
               />
 
               <Form.Control.Feedback type="invalid">
-                Ingrese un mail por favor.
+                Ingrese un mail
               </Form.Control.Feedback>
 
             </InputGroup>
@@ -93,7 +94,7 @@ const Formulario = () => {
              onChange={handleChangeCliente} 
             />
             <Form.Control.Feedback type="invalid">
-              Ingrese un numero de contacto.
+              Ingrese un numero de contacto
             </Form.Control.Feedback>
           </Form.Group>
 
@@ -108,7 +109,7 @@ const Formulario = () => {
               onChange={handleChangeCliente}
             />
             <Form.Control.Feedback type="invalid">
-              Ingrese una ciudad.
+              Ingrese una ciudad
             </Form.Control.Feedback>
           </Form.Group>
 
@@ -122,7 +123,7 @@ const Formulario = () => {
               onChange={handleChangeCliente}
             />
             <Form.Control.Feedback type="invalid">
-              Ingrese una provincia.
+              Ingrese una provincia
             </Form.Control.Feedback>
           </Form.Group>
 

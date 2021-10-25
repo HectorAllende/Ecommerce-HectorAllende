@@ -21,7 +21,7 @@ const Order = () => {
             <Modal.Body>
               <p>Tu pedido esta confirmado, puedes retirar con este ID:</p> 
               <p className="fs-6 fw-bolder" >{orderId} </p>
-              
+              <p className="text-muted fs-sm">Conserve este código ya que le será solicitado</p>
             </Modal.Body>
             <Modal.Footer>
                 <Link to='/'>
