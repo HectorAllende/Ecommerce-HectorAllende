@@ -18,6 +18,8 @@ Finalmente para terminar la transacción, al confirmar la operación se genera u
 
 ![image](https://user-images.githubusercontent.com/54869462/139555351-20400508-2434-4673-9f86-20809853c744.png)
 
+## Acceder al sitio 
 
+https://vidasana-ecommerce.netlify.app/
 
 
