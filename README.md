@@ -16,7 +16,8 @@ Finalmente para terminar la transacción, al confirmar la operación se genera u
 
 ## Imagenes
 
-![image](https://user-images.githubusercontent.com/54869462/138390858-55ebb3f3-9191-47d2-95e0-446bafea8a56.png)
+![image](https://user-images.githubusercontent.com/54869462/139555351-20400508-2434-4673-9f86-20809853c744.png)
+
 
 
 
