@@ -1,26 +1,20 @@
 # Vida Sana - Ecommerce
 
-Esta proyecto es un Ecommerce de alimentos Saludables y naturales, realizado en React
+Esta proyecto es un Ecommerce de alimentos Saludables y naturales llamado Vida Sana, realizado en React y Firebase,  para completar el trabajo final de Curso de ReactJS en Coder House
 
 
-## Comenzando 🚀
+## El Proyecto 🚀
 
-Para instalar el proyecto:
+El menú de navegación ofrece caracteristicas de productos, con la opción de ver el listado completo. 
+Permite ver el detalle individual del producto. 
 
-### `npm install`
+Una vez seleccionado el producto. El mismo se puede agregar a la lista de deseos o directamente al carrito de compras.
 
-El los productos estan en agregados en la base de datos de firebase
+En caso de querer eliminar algun items, permite removerlo. 
 
-### `npm install firebase`
+Finalmente para terminar la transacción, al confirmar la operación se genera un ID de compra, que se muestra por pantalla.
 
-Por último:
-
-### `npm start`
-
-Link donde corre la pagina  http://localhost:3000/
-
-
-## Proyecto 
+## Imagenes
 
 ![image](https://user-images.githubusercontent.com/54869462/138390858-55ebb3f3-9191-47d2-95e0-446bafea8a56.png)
 
