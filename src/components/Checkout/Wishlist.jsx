@@ -55,23 +55,7 @@ const Wishlist = ({ el }) => {
 
                 }
 
-                {/* <button onClick={() => {
-                    // eslint-disable-next-line
-                    {
-
-                        isInCart(el.id) ?
-
-                            removeItem(el.id)
-                            // eslint-disable-next-line
-                            :
-
-                            addCarrito(el);
-                        removeItem(el.id)
-
-
-                    }
-                }} className="btn btn-outline-secondary  rounded-pill btn-sm mb-2">Agregar carrito</button> */}
-
+              
             </div>
 
         </NavDropdown.Item>

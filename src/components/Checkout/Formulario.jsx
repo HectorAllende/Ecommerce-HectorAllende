@@ -15,11 +15,10 @@ const Formulario = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-
-
     }
 
     if (form.checkValidity() === true) {
+
       handleShowOrder()
       crearOrden()
       event.preventDefault();
@@ -59,7 +58,7 @@ const Formulario = () => {
 
             />
             <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
-  
+
           </Form.Group>
 
           <Form.Group as={Col} md="6" controlId="validationCustomEmail" className="mb-2">
@@ -87,11 +86,11 @@ const Formulario = () => {
           <Form.Group as={Col} md="6" controlId="validationCustom06" className="mb-2">
             <Form.Label>Telefono</Form.Label>
             <Form.Control
-             type="tel"
-             placeholder="Tu celular"
-             required
-             name="telefono"
-             onChange={handleChangeCliente} 
+              type="tel"
+              placeholder="Tu celular"
+              required
+              name="telefono"
+              onChange={handleChangeCliente}
             />
             <Form.Control.Feedback type="invalid">
               Ingrese un numero de contacto
@@ -143,18 +142,22 @@ const Formulario = () => {
 
         <Form.Group className="mb-1 fs-sm">
           <Form.Check
-            required           
+            required
             label="Acepto términos y condiciones"
             feedback="Debe aceptar terminos y condiciones."
             feedbackType="invalid"
           />
-           <button className="ms-3 btn count--button text-muted btn-sm mt-1" onClick={()=>handleShowTerminos()}>Ver Términos</button>
-        </Form.Group>
-        <div className="d-flex justify-content-end "> 
-        <Button type="submit" className="btn btn-success shadow rounded-pill">Confirmar Compra</Button>
-         </div>
 
-       
+        </Form.Group>
+
+        <p className="ms-3 btn text-muted btn-sm mt-1" onClick={() => handleShowTerminos()} >Ver Términos</p>
+
+        <div className="d-flex justify-content-end ">
+
+          <Button type="submit" className="btn btn-success shadow rounded-pill">Confirmar Compra</Button>
+        </div>
+
+
 
       </Form>
 

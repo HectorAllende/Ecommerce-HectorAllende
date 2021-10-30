@@ -8,19 +8,19 @@ export const CartContext = createContext()
 
 const CartProvider = (props) => {
 
-    
-    const {firebase}= useContext(FirebaseContext)
+
+    const { firebase } = useContext(FirebaseContext)
 
     const init = JSON.parse(localStorage.getItem('carrito')) || []
-   
+
 
     const [carrito, setCarrito] = useState(init)
     const [total, setTotal] = useState(0)
 
 
     const { productos } = useContext(ItemsContext)
-    
-    
+
+
 
     const addCarrito = (data) => {
 
@@ -75,74 +75,67 @@ const CartProvider = (props) => {
     const handleCloseTerminos = () => setShowTerminos(false);
     const handleShowTerminos = () => setShowTerminos(true);
 
-  
+
     const [showOrder, setShowOrder] = useState(false);
 
-    const handleCloseOrder = () =>{
+    const handleCloseOrder = () => {
         setShow(false)
         setShowOrder(false)
         setCarrito([])
-      
-    } 
+
+        setShowTerminos(false)
+
+    }
     const handleShowOrder = () => {
         setShow(false)
         setShowOrder(true)
     }
 
     const [orderClient, setOrderClient] = useState({
-        nombre:'',
-        apellido:'',
-        email:'',
-        telefono:'',
-        ciudad:'',
-        provincia:'',
-        comentarios:'',
+        nombre: '',
+        apellido: '',
+        email: '',
+        telefono: '',
+        ciudad: '',
+        provincia: '',
+        comentarios: '',
         creado: Date.now(),
-        
+
     })
 
     const handleChangeCliente = e => {
         e.preventDefault()
         setOrderClient({
             ...orderClient,
-            [e.target.name]:  e.target.value
+            [e.target.name]: e.target.value
         })
     }
-    const [orderId, setOrderId ] =useState()
+    const [orderId, setOrderId] = useState()
 
 
-    const crearOrden = ()=>{
+    const crearOrden = () => {
 
         try {
             const orden = {
                 cliente: orderClient,
-                productos:[...carrito],
+                productos: [...carrito],
                 totalPagar: total,
-                
+
             }
-    
-            firebase.db.collection('ordenes').add(orden).then(({id})=>{
+
+            firebase.db.collection('ordenes').add(orden).then(({ id }) => {
                 setOrderId(id)
             })
-            .catch((error)=>{
-                console.log(error)
-            })
+                .catch((error) => {
+                    console.log(error)
+                })
 
 
-            
+
         } catch (error) {
             console.log(error);
         }
-        
-
-
-
-
     }
-
-        
-     
-
 
 
     return (
@@ -171,7 +164,7 @@ const CartProvider = (props) => {
                 setShowOrder,
                 handleChangeCliente,
                 crearOrden,
-               
+
             }}
         >
             {props.children}

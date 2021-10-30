@@ -117,7 +117,7 @@ const ItemDetailContainer = () => {
 
                             <div className="col-12 col-md-4 mb-4 p-4 ">
                                 <h1 className="display-5 lead">{name}</h1>
-                                <p className="fs-3 lead">{description}</p>
+                                <p className="fs-5 lead">{description}</p>
                                 <p className="text-muted fs-3">${price}</p>
 
                                 {isInCart(id)

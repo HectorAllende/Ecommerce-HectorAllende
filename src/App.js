@@ -5,7 +5,6 @@ import Home from './components/Home/Home';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemListContainer/ItemDetailContainer';
 import About from './components/About/About'
-import Contacto from './components/Contacto/Contacto'
 import Checkout from './components/Checkout/Checkout'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import scrollTop from './components/utils/scrollTop';
@@ -42,7 +41,6 @@ function App() {
                 <Route exact path="/productos/:category" component={ItemListContainer}></Route>
                 <Route exact path="/item/:id" component={ItemDetailContainer}></Route>
                 <Route exact path="/about" component={About}></Route>
-                <Route exact path="/contacto" component={Contacto}></Route>
                 <Route exact path="/checkout" component={Checkout}></Route>
                 <Redirect to={"/"} />
               </Switch>

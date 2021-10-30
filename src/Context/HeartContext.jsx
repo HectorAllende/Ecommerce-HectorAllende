@@ -4,31 +4,31 @@ export const HeartContext = createContext()
 
 const HeartProvider = (props) => {
 
-    const item = JSON.parse(localStorage.getItem('heart'))||[]
+    const item = JSON.parse(localStorage.getItem('heart')) || []
 
-    const [heart, setHeart]= useState(item)
-   
-    const addHeart = data =>{
+    const [heart, setHeart] = useState(item)
+
+    const addHeart = data => {
         setHeart([...heart, data])
     }
-    const removeItem=id=>{
+    const removeItem = id => {
         const nuevoHeart = heart.filter(el => el.id !== id)
         setHeart(nuevoHeart)
     }
 
-    const isInHeart=id=>{
-        return heart.some(el => el.id ===id)
+    const isInHeart = id => {
+        return heart.some(el => el.id === id)
     }
-    const vaciarHeart = (e)=>{
+    const vaciarHeart = (e) => {
         // e.stopPropagation()
         setHeart([])
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         localStorage.setItem('heart', JSON.stringify(heart))
-    },[heart])
+    }, [heart])
 
-    return ( 
+    return (
         <HeartContext.Provider
             value={{
                 heart,
@@ -41,7 +41,7 @@ const HeartProvider = (props) => {
         >
             {props.children}
         </HeartContext.Provider>
-     );
+    );
 }
- 
+
 export default HeartProvider;

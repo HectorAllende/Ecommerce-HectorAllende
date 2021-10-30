@@ -20,7 +20,7 @@ const ItemsProvider = (props) => {
 
         const data = sessionStorage.getItem("productos")
 
-        if(data){
+        if (data) {
             let productos = JSON.parse(data)
 
             setCargando(true)
@@ -86,7 +86,7 @@ const ItemsProvider = (props) => {
 
         // eslint-disable-next-line
     }, [id, category])
- 
+
     return (
         <ItemsContext.Provider
             value={{
