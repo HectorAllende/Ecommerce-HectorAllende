@@ -44,7 +44,7 @@ const Wishlist = ({ el }) => {
 
                 {isInCart(el.id) ?
                     <>
-                        <p className="fw-light fs-6">{el.name}</p>
+                     
                         <p className="text-muted fs-sm fw-light mt-1">Producto ya agregado al carrito</p>
                        
 
