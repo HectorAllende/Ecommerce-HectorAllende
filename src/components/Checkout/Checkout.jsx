@@ -22,14 +22,14 @@ const Checkout = () => {
                     {carrito.length === 0 ?
                         <>
                             <div className=" row text-center m-6 p-5">
-                                <p className="text-muted lead fs-2">Tu carrito esta Vacío</p>
+                                <p className="text-muted lead fs-2 my-5">Tu carrito esta Vacío</p>
                                 <p className="text-muted lead fs-4">Comienza agregando productos :)</p>
                         
 
-                                <div className="my-4">
+                                <div className="my-5">
                                     <Link to={`/productos/`}>
                                     
-                                    <box-icon name='cart' animation='tada' size="80px" color="gray" ></box-icon>
+                                    <box-icon name='cart' animation='tada' size="100px" color="gray" ></box-icon>
                                     </Link>
                                 </div>
 
