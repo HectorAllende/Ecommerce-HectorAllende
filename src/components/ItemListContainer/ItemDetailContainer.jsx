@@ -48,7 +48,7 @@ const ItemDetailContainer = () => {
         }
         if (cantidad > 0) {
             addCarrito(newItem)
-
+            setCantidad(1)
 
         }
 
@@ -68,7 +68,7 @@ const ItemDetailContainer = () => {
         if (cantidad > 0) {
 
             addHeart(newItem)
-
+            setCantidad(1)
         }
 
     }
@@ -142,7 +142,7 @@ const ItemDetailContainer = () => {
                                         <div className="d-flex">
 
 
-                                            <div className="d-flex flex-column justify-content-start align-items-start mb-2">
+                                            <div className="d-flex flex-column justify-content-start align-items-start mb-2 me-3">
                                                 <ItemCount
                                                     cantidad={cantidad}
                                                     setCantidad={setCantidad}

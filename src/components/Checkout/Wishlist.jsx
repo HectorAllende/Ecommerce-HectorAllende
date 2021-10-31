@@ -22,7 +22,7 @@ const Wishlist = ({ el }) => {
                         <img src={el.img1} alt={el.name} width="60rem" height="50rem" className="" />
                     </div>
 
-                    <div className="col-6 d-flex flex-column mx-1 text-center lh-1 py-1">
+                    <div className="col-5 d-flex flex-column mx-1 text-center lh-1 py-1">
 
                         
                    
@@ -30,7 +30,7 @@ const Wishlist = ({ el }) => {
 
                     </div>
 
-                    <div className="d-flex flex-column col-1 count--button">
+                    <div className="d-flex flex-column col-2 count--button">
 
                         <button className=" count--button text-danger d-block" onClick={() => removeItem(el.id)}><box-icon name='window-close' color="grey" size="sm"></box-icon></button>
 

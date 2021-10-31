@@ -54,7 +54,7 @@ const Checkout = () => {
 
 
                                                     <div className="mt-4">
-                                                        <h3 className="lead">{el.name}</h3>
+                                                        <h3 className="lead fw-bolder">{el.name}</h3>
                                                         <p className="text-muted">{el.description}</p>
                                                      
                                                         <p className="text-muted lead fs-5 fw-bold"> ${el.price}</p>
