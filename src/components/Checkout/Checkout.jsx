@@ -46,29 +46,46 @@ const Checkout = () => {
                                         <div className="container">
                                             <div className="row">
 
-                                                <div className="col-12 border border-2 g-0 m-4 shadow bg-body rounded d-flex justify-content-between ">
+                                                <div className="col-12 border border-2 g-0 m-3 shadow bg-body rounded d-flex flex-wrap justify-content-between ">
+                                                    <div className="col-6">
 
-                                                    <div className="">
-                                                        <img src={el.img1} width="150" className="rounded-1 m-2" alt={el.name} />
-                                                    </div>
+                                                        <img src={el.img1} width="140" className="rounded-1 my-2 img-fluid" alt={el.name} />
 
-
-                                                    <div className="mt-4">
-                                                        <h3 className="lead fw-bolder">{el.name}</h3>
-                                                        <p className="text-muted">{el.description}</p>
-                                                     
-                                                        <p className="text-muted lead fs-5 fw-bold"> ${el.price}</p>
 
                                                     </div>
 
-                                               
-                                                    <div className="">
-                                                        <button className=" count--button text-danger" onClick={() => removeItem(el.id)}><box-icon name='window-close' color="grey" size="sm"></box-icon></button>
-                                                    </div>                
+                                                    
+                                                    <div className="col-6 d-flex justify-content-between">
+                                                        <div className="mt-4 text-center">
+                                                            <h3 className="lead fw-bolder text-center">{el.name}</h3>
+
+
+                                                            <p className="text-muted lead fs-5 fw-bold"> ${el.price}</p>
+
+                                                        </div>
+
+
+
+                                                        <div className="">
+                                                            <button className=" count--button text-danger" onClick={() => removeItem(el.id)}><box-icon name='window-close' color="grey" size="sm"></box-icon></button>
+                                                        </div>
+
+
+
+
+
+
+                                                    </div>
+
+                                                    <div className="col-10 ms-2 ms-lg-5 px-1 d-flex text-start">
+                                                        
+                                                    <p className="text-muted">{el.description}</p>
+                                                    </div>
 
 
                                                 </div>
 
+                                              
 
                                             </div>
 
@@ -76,7 +93,7 @@ const Checkout = () => {
                                     ))}
                                 </div>
 
-                                <div className="col-11 col-md-4 text-center my-3 offset-1">
+                                <div className="col-11 col-md-4 text-start my-3 offset-1">
 
                                     < Detalle />
 
